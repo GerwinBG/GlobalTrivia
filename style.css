@@ -46,7 +46,7 @@
     .w-lg-50 {
       width: 50%;
     }
-  
+
     .nav-item .nav-link {
       font-size: 15px;
       text-transform: uppercase;
@@ -57,3 +57,4 @@
     .nav-item .nav-link:active {
       color:#F8C740;
     }
+}
