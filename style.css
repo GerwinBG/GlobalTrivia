@@ -52,6 +52,24 @@
   transform: translate(0, -8px) rotate(45deg);
 }
 
+/*This TriviaGame Entry Form*/
+header {
+  margin-bottom: 150px;
+}
+
+.nav-item span {
+  margin: 0 2rem;
+}
+
+form#userInfoForm .mb-3 {
+  padding-bottom: 1rem;
+}
+
+div#gameSection {
+  margin-top: 3rem;
+}
+
+
 #home,
 #countries,
 #about {

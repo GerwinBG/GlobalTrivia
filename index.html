@@ -18,7 +18,7 @@
       <div class="container">
 
         <a href="#top"><img src="Image/GlobalTrivialogo.png" class="animate__animated animate__fadeInLeft" alt="Logo"
-            style="width: 7rem; height: 3rem;"></a>
+            style="width: 9rem; height: 4rem;"></a>
 
         <button class="navbar-toggler" onclick="myFunction(this)" type="button" data-bs-toggle="collapse"
           data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -47,8 +47,42 @@
 
   </header>
 
-  <div class="container" id="home">
-    <h1>Country Trivia Game</h1>
+  <div class="container">
+    <h1 class="text-center">TriviaGame</h1>
+    <div class="d-flex justify-content-center align-items-center">
+      <form id="userInfoForm" class="mt-5 mb-5">
+        <div class="mb-3">
+          <label for="nameInput" class="form-label">Name</label>
+          <input type="text" id="nameInput" class="form-control" required> 
+        </div>
+        <div class="mb-3">
+          <label for="ageInput" class="form-label">Age:</label>
+          <input type="number" id="ageInput" class="form-control" required>    
+        </div>
+        <div class="mb-3">
+          <label for="genderInput" class="form-label">Gender:</label>
+          <select id="genderInput" class="form-select" required>
+            <option value="">Select Gender</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+  </div>
+    
+  <div>
+    <div id="congratulations" style="display: none;">
+      <h2>Welcome to GlobalTrivia</h2>
+      <p>Are you ready for trivia questions?</p>
+      <button id="startGameBtn" class="btn btn-primary">Start the game</button>
+    </div>
+  </div>
+
+  <div>
+    <h1 class="text-center">Country Trivia Game</h1>
     <p id="timer"></p>
     <h2 id="question"></h2>
     <div id="options" class="options"></div>
