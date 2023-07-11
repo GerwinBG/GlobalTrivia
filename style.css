@@ -1,78 +1,92 @@
+@import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Inter:wght@400;600&family=Josefin+Sans:wght@300&family=Kanit:wght@500&family=Montserrat&family=Open+Sans&family=Roboto&family=Roboto+Flex&family=Roboto+Slab&family=Signika:wght@500&display=swap");
 
+:root {
+  --color1: #18d7e8;
+  --color2: #e8edf3;
+  --color3: #f60878;
+  --color4: #fa8d0d;
+}
 
 * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    list-style: none;
-    text-decoration: none;
-    scroll-behavior: smooth;  
-  }
-
-  .collapse {
-    width: 25vw;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+  scroll-behavior: smooth;
+  font-family: "Roboto Flex", sans-serif;
 }
 
-.navbar-nav {
-  text-align: center;
+.nav-item a {
+  margin: 0 4rem;
+  color: var(--color1);
+  transition: all 0.1s ease-in;
+  font-weight: 800;
+  text-shadow: 0, 0, 0, 0.5px;
 }
 
-.nav-item .nav-link {
-    text-decoration: none;
-    color: #0d74ba;
-    font-size: 16px;
-    text-transform: uppercase;
-    font-weight: 560;
-    border-radius: 4px;
-
-}
-
-.nav-item .nav-link:hover {
-    background-color: #F8C740;
-    color: white;
-}
-  
 .navbar-toggler {
-    color: #4C745C;
+  display: inline-block;
+  cursor: pointer;
 }
 
-#navbar form button {
-  background: #0d74ba;
+.bar1,
+.bar2,
+.bar3 {
+  width: 20px;
+  height: 3px;
+  background-color: var(--color1);
+  margin: 5px 0;
+  transition: 0.2s ease;
 }
 
-.menu-icon {
-    color: #0d74ba;
+.change .bar1 {
+  transform: translate(0, 8px) rotate(-45deg);
 }
 
-@media only screen and (min-width: 769px) {
-    .w-lg-50 {
-      width: 50%;
-    }
-  
-    .nav-item .nav-link {
-      font-size: 15px;
-      text-transform: uppercase;
-      font-weight: 500;
-      letter-spacing: 1px;
-    }
-  
-    .nav-item .nav-link:active {
-      color:#F8C740;
-    }
+.change .bar2 {
+  opacity: 0;
+}
 
-    .cardContainer {
-      gap: 5px;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      align-items: center;
-    }
-    
-    .card {
-      width: 230px;
-    }
-    
-    .card p {
-      padding: -2;
-      font-size: 0.7em;
-    }
+.change .bar3 {
+  transform: translate(0, -8px) rotate(45deg);
+}
+
+#countries {
+  padding-top: 7rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+/* end of nav */
+
+/* country cards */
+.cardContainer {
+  gap: 5px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  width: 150px;
+}
+
+.card span {
+  padding-top: 2px;
+  font-size: 0.4em;
+}
+.card-body {
+  display: flex;
+  flex-direction: column;
+}
+.card h5 {
+  padding: 0;
+  font-size: 15px;
+}
+
+h1 {
+  padding-top: 7rem;
+}
