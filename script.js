@@ -37,7 +37,26 @@ const navigateToAbout = () => {
   showSelectedPage('about');
 }
 
+// For UserEntryForm
+document.getElementById('userInfoForm').addEventListener('submit', function(event) {
+  event.preventDefault();
 
+  // Get user input values
+  const name = document.getElementById('nameInput').value;
+  const age = document.getElementById('ageInput').value;
+  const gender = document.getElementById('genderInput').value;
+
+  // Store user info in local storage
+  localStorage.setItem('username', name);
+  localStorage.setItem('age', age);
+  localStorage.setItem('gender', gender);
+
+  // Hide the form and show the congratulations section
+  document.getElementById('userInfoForm').style.display = 'none';
+  document.getElementById('congratulations').style.display = 'block';
+});
+
+ 
 
 
 const questionElement = document.getElementById("question");
