@@ -2,8 +2,7 @@
 // toggle for nav
 function myFunction(x) {
   x.classList.toggle("change");
-}  
-
+} 
 
 window.addEventListener('popstate', (e) => {
   showSelectedPage(e.state.id);
