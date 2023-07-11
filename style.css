@@ -1,22 +1,78 @@
+
+
 * {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+    scroll-behavior: smooth;  
+  }
+
+  .collapse {
+    width: 25vw;
 }
 
-.cardContainer {
-  gap: 5px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
+.navbar-nav {
+  text-align: center;
 }
 
-.card {
-  width: 230px;
+.nav-item .nav-link {
+    text-decoration: none;
+    color: #0d74ba;
+    font-size: 16px;
+    text-transform: uppercase;
+    font-weight: 560;
+    border-radius: 4px;
+
 }
 
-.card p {
-  padding: -2;
-  font-size: 0.7em;
+.nav-item .nav-link:hover {
+    background-color: #F8C740;
+    color: white;
 }
+  
+.navbar-toggler {
+    color: #4C745C;
+}
+
+#navbar form button {
+  background: #0d74ba;
+}
+
+.menu-icon {
+    color: #0d74ba;
+}
+
+@media only screen and (min-width: 769px) {
+    .w-lg-50 {
+      width: 50%;
+    }
+  
+    .nav-item .nav-link {
+      font-size: 15px;
+      text-transform: uppercase;
+      font-weight: 500;
+      letter-spacing: 1px;
+    }
+  
+    .nav-item .nav-link:active {
+      color:#F8C740;
+    }
+
+    .cardContainer {
+      gap: 5px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .card {
+      width: 230px;
+    }
+    
+    .card p {
+      padding: -2;
+      font-size: 0.7em;
+    }
