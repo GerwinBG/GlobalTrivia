@@ -32,13 +32,13 @@
           <ul class="navbar-nav ms-auto mb-2 mb-lg-0 mb-2">
 
             <li class="nav-item animate__animated animate__flipInX">
-              <a class="nav-link" href="index.html">TRIVIA GAME</a>
+              <span class="nav-link" onclick="navigateToHome()">TRIVIA GAME</span>
             </li>
             <li class="nav-item animate__animated animate__flipInX">
-              <a class="nav-link" href="Pages/Services.html">COUNTRIES</a>
+              <span class="nav-link" onclick="navigateToCountries()">COUNTRIES</span>
             </li>
             <li class="nav-item animate__animated animate__flipInX">
-              <a class="nav-link" href="Pages/About.html">ABOUT US</a>
+              <span class="nav-link" onclick="navigateToAbout()">ABOUT US</span>
             </li>
           </ul>
         </div>
@@ -47,8 +47,7 @@
 
   </header>
 
-
-  <div class="container">
+  <div class="container" id="home">
     <h1>Country Trivia Game</h1>
     <p id="timer"></p>
     <h2 id="question"></h2>
@@ -56,18 +55,42 @@
     <p id="feedback"></p>
     <button id="nextBtn" style="display: none;" onclick="nextQuestion()">Next Question</button>
     <p id="score"></p>
- </div>
-
-
+  </div>
 
 
   <div class="fluid-container d-none" id="countries">
     <h1>Countries Gallery</h1>
     <div class="cardContainer">
-
+      <div class="card">
+        <img src="jo.png" class="card-img-top">
+        <div class="card-body">
+          <h5>Card title</h5>
+          <span>Capital: </span>
+          <span>Contenent: </span>
+          <span>Language: </span>
+          <span>Currency: </span>
+        </div>
+      </div>
 
     </div>
   </div>
+  <div class="container d-none" id="about">
+    <h1>About Us</h1>
+    <div class="cardContainer">
+      <div class="card">
+        <img src="jo.png" class="card-img-top">
+        <div class="card-body">
+          <h5>Card title</h5>
+          <span>Capital: </span>
+          <span>Contenent: </span>
+          <span>Language: </span>
+          <span>Currency: </span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
 
 
   <script src="script.js"></script>

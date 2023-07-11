@@ -17,7 +17,7 @@
   font-family: "Roboto Flex", sans-serif;
 }
 
-.nav-item a {
+.nav-item span {
   margin: 0 4rem;
   color: var(--color1);
   transition: all 0.1s ease-in;
@@ -52,16 +52,21 @@
   transform: translate(0, -8px) rotate(45deg);
 }
 
+#home,
+#countries,
+#about {
+  padding-top: 5rem;
+}
+/* end of nav */
+
+/* country cards */
 #countries {
-  padding-top: 7rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-/* end of nav */
 
-/* country cards */
 .cardContainer {
   gap: 5px;
   display: flex;
@@ -85,8 +90,4 @@
 .card h5 {
   padding: 0;
   font-size: 15px;
-}
-
-h1 {
-  padding-top: 7rem;
 }

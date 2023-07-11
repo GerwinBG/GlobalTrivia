@@ -5,6 +5,41 @@ function myFunction(x) {
 }  
 
 
+window.addEventListener('popstate', (e) => {
+  showSelectedPage(e.state.id);
+});
+
+const pages = ['home', 'countries', 'about'];
+
+history.replaceState({ id: 'home' }, 'Trivia Game', './index.html');
+const showSelectedPage = (selectedPage) => {
+  pages.forEach(page => {
+    const pageDiv = document.getElementById(page);
+
+    if (page === selectedPage) {
+      pageDiv.classList.remove('d-none');
+    } else {
+      pageDiv.classList.add('d-none');
+    }
+  })
+}
+const navigateToHome = () => {
+  history.pushState({ id: 'home' }, 'TriviaGame', './index.html');
+  showSelectedPage('home');
+}
+
+const navigateToCountries = () => {
+  history.pushState({ id: 'countries' }, 'Countries', './index.html#countries');
+  showSelectedPage('countries');
+}
+
+const navigateToAbout = () => {
+  history.pushState({ id: 'about' }, 'About', './index.html#about');
+  showSelectedPage('about');
+}
+
+
+
 
 const questionElement = document.getElementById("question");
 const optionsElement = document.getElementById("options");
