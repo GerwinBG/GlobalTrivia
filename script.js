@@ -205,4 +205,36 @@ fetchData();
 
 // Cards For Country
 
+// fetchCountry
+const loadCountryAPI = () => {
+  fetch('https://restcountries.com/v3.1/all')
+  .then(res => res.json())
+  .then(data => displayCountries(data))
+}
+// display all countries
+const displayCountries = countries => {
+  console.log(countries);
+  const countriesHTML = countries.map(country => getCountry(country))
+  // displaying div to HTML
+  const container =document.getElementById('cardCountry');
+  container.innerHTML = countriesHTML.join(' ');
+}
 
+
+// get data and set it to Html
+const getCountry = (country) =>  {
+  console.log(country)
+  return `
+    <div class="card">
+      <img src="${country.flags.png}" class="card-img-top" />
+      <div class="card-body">    
+        <h5>${country.name.common}</h5>
+        <p class="card-text">Capital: ${country.capital}</p> 
+        <p class="card-text">Continent: ${country.continents}</p> 
+      </div>  
+    </div>
+
+  ` 
+}
+
+loadCountryAPI()

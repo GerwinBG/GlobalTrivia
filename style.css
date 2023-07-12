@@ -18,12 +18,12 @@
   font-family: "Roboto Flex", sans-serif;
 }
 
-body {
+/* body {
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-}
+} */
 
 .nav-item span {
   margin: 5rem 3rem;
@@ -71,7 +71,7 @@ body {
 }
 
 header {
-  margin-bottom: 150px;
+  margin-bottom: 7rem;
 }
 
 .nav-item span {
@@ -79,6 +79,11 @@ header {
 }
 
 /*This TriviaGame Entry Form*/
+#home {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 .box {
   position: relative;
@@ -92,26 +97,40 @@ header {
 }
 
 .box::before {
-  content: '';
+  content: "";
   position: absolute;
   top: -50%;
   left: -50%;
   width: 380px;
   height: 420px;
-  background: linear-gradient(0deg, transparent, transparent, #18d7e8, #18d7e8, #18d7e8);
+  background: linear-gradient(
+    0deg,
+    transparent,
+    transparent,
+    #18d7e8,
+    #18d7e8,
+    #18d7e8
+  );
   z-index: 1;
   transform-origin: bottom right;
   animation: animate 6s linear infinite;
 }
 
 .box::after {
-  content: '';
+  content: "";
   position: absolute;
   top: -50%;
   left: -50%;
   width: 380px;
   height: 420px;
-  background: linear-gradient(0deg, transparent, transparent, #18d7e8, #18d7e8, #18d7e8);
+  background: linear-gradient(
+    0deg,
+    transparent,
+    transparent,
+    #18d7e8,
+    #18d7e8,
+    #18d7e8
+  );
   z-index: 1;
   transform-origin: bottom right;
   animation: animate 6s linear infinite;
@@ -125,13 +144,20 @@ header {
 }
 
 .border-line::before {
-  content: '';
+  content: "";
   position: absolute;
   top: -50%;
   left: -50%;
   width: 380px;
   height: 420px;
-  background: linear-gradient(0deg, transparent, transparent, #f60878, #f60878, #f60878);
+  background: linear-gradient(
+    0deg,
+    transparent,
+    transparent,
+    #f60878,
+    #f60878,
+    #f60878
+  );
   z-index: 1;
   transform-origin: bottom right;
   animation: animate 6s linear infinite;
@@ -139,13 +165,20 @@ header {
 }
 
 .border-line::after {
-  content: '';
+  content: "";
   position: absolute;
   top: -50%;
   left: -50%;
   width: 380px;
   height: 420px;
-  background: linear-gradient(0deg, transparent, transparent, #f60878, #f60878, #f60878);
+  background: linear-gradient(
+    0deg,
+    transparent,
+    transparent,
+    #f60878,
+    #f60878,
+    #f60878
+  );
   z-index: 1;
   transform-origin: bottom right;
   animation: animate 6s linear infinite;
@@ -195,7 +228,7 @@ header {
   box-shadow: none;
   color: var(--color2);
   border-color: var(--color2);
-  letter-spacing: 0. 05em;
+  letter-spacing: 0 05em;
   transition: 0.5s;
   z-index: 10;
 }
@@ -228,49 +261,24 @@ header {
   color: #18d7e8;
   border: 2px solid;
   border-color: #18d7e8;
-  
 }
 
 div#gameSection {
   margin-top: 3rem;
 }
 
-#home,
-#countries,
-#about {
-  padding-top: 1rem;
-}
 /* end of nav */
 
 /* country cards */
-#countries {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+#countries h1 {
+  text-align: center;
 }
 
-.cardContainer {
-  gap: 5px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
+.cardCountry {
+  max-width: 1240px;
+  margin: 0 auto;
 }
 
 .card {
-  width: 150px;
-}
-
-.card span {
-  padding-top: 2px;
-  font-size: 0.4em;
-}
-.card-body {
-  display: flex;
-  flex-direction: column;
-}
-.card h5 {
-  padding: 0;
-  font-size: 15px;
+  width: 18rem;
 }
