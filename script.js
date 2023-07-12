@@ -201,3 +201,19 @@ function endGame() {
 }
 
 fetchData();
+
+
+// Cards For Country
+
+const fetchCountry = () => {
+  const url = `https://restcountries.com/v3.1/independent?status=true`;
+  fetch(url)
+  .then( res => {
+    return res.json();
+  })
+  .then( data => {
+    console.log(data.);
+});
+}
+
+fetchCountry();
