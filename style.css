@@ -18,6 +18,13 @@
   font-family: "Roboto Flex", sans-serif;
 }
 
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
 .nav-item span {
   margin: 5rem 3rem;
   color: var(--color4);
@@ -74,29 +81,154 @@ header {
 /*This TriviaGame Entry Form*/
 
 .box {
+  position: relative;
+  width: 380px;
+  height: 420px;
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 10vh;
   border-radius: 8px;
+  overflow: hidden;
+}
+
+.box::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 380px;
+  height: 420px;
+  background: linear-gradient(0deg, transparent, transparent, #18d7e8, #18d7e8, #18d7e8);
+  z-index: 1;
+  transform-origin: bottom right;
+  animation: animate 6s linear infinite;
+}
+
+.box::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 380px;
+  height: 420px;
+  background: linear-gradient(0deg, transparent, transparent, #18d7e8, #18d7e8, #18d7e8);
+  z-index: 1;
+  transform-origin: bottom right;
+  animation: animate 6s linear infinite;
+  animation-delay: -3s;
+}
+
+.border-line {
+  position: absolute;
+  top: 0;
+  inset: 0;
+}
+
+.border-line::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 380px;
+  height: 420px;
+  background: linear-gradient(0deg, transparent, transparent, #f60878, #f60878, #f60878);
+  z-index: 1;
+  transform-origin: bottom right;
+  animation: animate 6s linear infinite;
+  animation-delay: -1.5s;
+}
+
+.border-line::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 380px;
+  height: 420px;
+  background: linear-gradient(0deg, transparent, transparent, #f60878, #f60878, #f60878);
+  z-index: 1;
+  transform-origin: bottom right;
+  animation: animate 6s linear infinite;
+  animation-delay: -4.5s;
+}
+
+@keyframes animate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 .box form {
-  position: relative;
-  background-color: var(--color1);
+  position: absolute;
+  background-color: var(--color5);
   inset: 4px;
   padding: 50px 40px;
+  border-radius: 8px;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
 }
 
 .box h1 {
-  color: var(--color3);
-  font-weight: bold;
+  color: var(--color1);
+  font-weight: bolder;
   letter-spacing: 2px;
+  text-align: center;
+  letter-spacing: 0.1em;
 }
 
+.box form .inputBox {
+  position: relative;
+  width: 300px;
+  margin-top: 20px;
+}
 
-form#userInfoForm .mb-3 {
-  padding-bottom: 1rem;
+.box form .inputBox input {
+  position: relative;
+  width: 100%;
+  padding: 20px 10px 10px;
+  background: transparent;
+  outline: none;
+  box-shadow: none;
+  color: var(--color2);
+  border-color: var(--color2);
+  letter-spacing: 0. 05em;
+  transition: 0.5s;
+  z-index: 10;
+}
+
+.box form .inputBox span {
+  left: 0;
+  pointer-events: none;
+  color: var(--color1);
+}
+
+.box form .btn {
+  width: 300px;
+  background-color: var(--color4);
+  color: #e8edf3;
+  border: none;
+  outline: none;
+  padding: 15px 25px;
+  cursor: pointer;
+  font-size: 0.9em;
+  border-radius: 4px;
+  font-weight: 400;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  letter-spacing: 1px;
+}
+
+.box form .btn:hover {
+  font-weight: bold;
+  background-color: transparent;
+  color: #18d7e8;
+  border: 2px solid;
+  border-color: #18d7e8;
+  
 }
 
 div#gameSection {
