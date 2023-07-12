@@ -18,7 +18,7 @@
   font-family: "Roboto Flex", sans-serif;
 }
 
-/* body {
+ /*body {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -78,11 +78,22 @@ header {
   margin: 0 2rem;
 }
 
+/* end of nav */
+
 /*This TriviaGame Entry Form*/
+
+/*
 #home {
   display: flex;
   justify-content: center;
   align-items: center;
+} */
+
+.UserInfo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
 }
 
 .box {
@@ -267,7 +278,6 @@ div#gameSection {
   margin-top: 3rem;
 }
 
-/* end of nav */
 
 /* country cards */
 #countries h1 {
