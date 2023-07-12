@@ -5,6 +5,7 @@
   --color2: #e8edf3;
   --color3: #f60878;
   --color4: #fa8d0d;
+  --color5: #000000;
 }
 
 * {
@@ -18,11 +19,21 @@
 }
 
 .nav-item span {
-  margin: 0 4rem;
-  color: var(--color1);
-  transition: all 0.1s ease-in;
+  margin: 5rem 3rem;
+  color: var(--color4);
+  transition: all 0.2s ease-in;
   font-weight: 800;
-  text-shadow: 0, 0, 0, 0.5px;
+  padding: 5px 10px;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.nav-item span:hover {
+  padding: 5px 10px;
+  border-radius: 25px;
+  color: var(--color2);
+  font-weight: 800;
+  background-color: var(--color3);
+  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
 }
 
 .navbar-toggler {
@@ -92,11 +103,10 @@ div#gameSection {
   margin-top: 3rem;
 }
 
-
 #home,
 #countries,
 #about {
-  padding-top: 5rem;
+  padding-top: 1rem;
 }
 /* end of nav */
 
