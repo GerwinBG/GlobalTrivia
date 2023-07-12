@@ -58,8 +58,6 @@ document.getElementById('userInfoForm').addEventListener('submit', function(even
 });
 
  
-
-
 const questionElement = document.getElementById("question");
 const optionsElement = document.getElementById("options");
 const feedbackElement = document.getElementById("feedback");
