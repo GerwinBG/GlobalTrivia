@@ -54,11 +54,15 @@ document.getElementById('userInfoForm').addEventListener('submit', function(even
   document.getElementById('congratulations').style.display = 'block';
 });
 
-document.getElementById('startGameBtn').addEventListener('click', function() {
-  document.getElementById('congratulations').style.display = 'none';
-  document.getElementById('leaderboard').style.display = 'block';
-  document.querySelector('.fluid-container').style.display = 'flex';
-}); 
+const startGameBtn = document.getElementById('startGameBtn');
+const welcomePopup = document.querySelector('.WelcomePopup');
+const leaderboardSection = document.getElementById('leaderboard');
+
+startGameBtn.addEventListener('click', () => {
+  welcomePopup.remove();
+  leaderboardSection.classList.remove('d-none');
+});
+
 
 const questionElement = document.getElementById("question");
 const optionsElement = document.getElementById("options");

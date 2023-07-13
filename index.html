@@ -69,7 +69,7 @@
 
       <div class="WelcomePopup">
         <div id="congratulations" style="display: none;">
-          <h1 class="text-center text-white">Welcome to GlobalTrivia!</h1>
+          <h1 class="text-center text-white">Welcome to <span class="caption-keywords">GlobalTrivia!</span></h1>
           <p class="text-center text-white">Are you ready for trivia questions?</p>
           <div class="outer circle">
             <button id="startGameBtn">Start</button>
@@ -79,17 +79,60 @@
         </div>
       </div>
       
-      <div id="leaderboard" style="display: none;" class="col-md-3">
-        <h2>Leaderboard</h2>
-        <table id="leaderboardTable">
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Score</th>
-            </tr>
-          </thead>
-          <tbody id="leaderboardBody"></tbody>
-        </table>
+      <div id="leaderboard" class="leaderboardbox d-none">
+        <h3 class="text-white">Top Rated Players <img src="./images/trophy.png" alt="Hand holding the Gold Trophy" style="width: 40px; height: 40px;"></h3>
+        <div id="leaderboardContainer">
+          <div class="list">
+            <div class="imgBx">
+              <img src="./Images/Image2.jpg" style="width: 70px; height: 70px;">
+            </div>
+            <div class="content">
+              <h2 class="rank"><small>#</small>1</h2>
+              <h4>Klane Zurbano <img src="./Images/1st-prize.png" style="width: 40px; height: 40px;"></h4>
+            </div>
+          </div>
+
+          <div class="list">
+            <div class="imgBx">
+              <img src="./Images/Image5.jpg" style="width: 70px; height: 70px;">
+            </div>
+            <div class="content">
+              <h2 class="rank"><small>#</small>2</h2>
+              <h4>Mariya Villamor <img src="./Images/trophy-star.png" style="width: 40px; height: 40px;"></h4>
+            </div>
+          </div>
+
+          <div class="list">
+            <div class="imgBx">
+              <img src="./Images/Image3.jpg" style="width: 70px; height: 70px;">
+            </div>
+            <div class="content">
+              <h2 class="rank"><small>#</small>3</h2>
+              <h4>Gerwin Gindoy <img src="./Images/trophy (2).png" style="width: 40px; height: 40px;"></h4>
+            </div>
+          </div>
+
+          <div class="list">
+            <div class="imgBx">
+              <img src="./Images/Image4.jpg" style="width: 70px; height: 70px;">
+            </div>
+            <div class="content">
+              <h2 class="rank"><small>#</small>4</h2>
+              <h4>Baneknek <img src="./Images/trophy (2).png" style="width: 40px; height: 40px;"></h4>
+            </div>
+          </div>
+
+          <div class="list">
+            <div class="imgBx">
+              <img src="./Images/Image1.jpg" style="width: 70px; height: 70px;">
+            </div>
+            <div class="content">
+              <h2 class="rank"><small>#</small>5</h2>
+              <h4>Jodymendo Bandoles <img src="./Images/trophy (1).png" style="width: 40px; height: 40px;"></h4>
+            </div>
+          </div>
+        </div>
+        <div id="topPlayerList"></div> 
       </div>
 
       <div class="fluid-container col-md-9"
