@@ -18,6 +18,7 @@
   font-family: "Roboto Flex", sans-serif;
 }
 
+
 .nav-item span {
   margin: 5rem 3rem;
   color: var(--color4);
@@ -211,7 +212,7 @@
 
 .box h1 {
   color: var(--color1);
-  font-family: "Roboto Flex", sans-serif;
+  font-family: "signika", sans-serif;
   font-weight: bolder;
   letter-spacing: 2px;
   text-align: center;
