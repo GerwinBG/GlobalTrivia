@@ -18,7 +18,7 @@
   font-family: "Roboto Flex", sans-serif;
 }
 
-/* body {
+ /*body {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -78,11 +78,25 @@ header {
   margin: 0 2rem;
 }
 
+/* end of nav */
+
 /*This TriviaGame Entry Form*/
+
+/*
 #home {
   display: flex;
   justify-content: center;
   align-items: center;
+} */
+
+.UserInfo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url('./images/Background-image.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 90vh;
 }
 
 .box {
@@ -196,7 +210,7 @@ header {
 
 .box form {
   position: absolute;
-  background-color: var(--color5);
+  background-color: rgba(0, 0, 0, 0.8);
   inset: 4px;
   padding: 50px 40px;
   border-radius: 8px;
@@ -263,11 +277,17 @@ header {
   border-color: #18d7e8;
 }
 
+.WelcomePopup {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 div#gameSection {
   margin-top: 3rem;
 }
 
-/* end of nav */
 
 /* country cards */
 #countries h1 {

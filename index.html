@@ -17,7 +17,7 @@
     <nav class="navbar navbar-expand-lg bg-light fixed-top">
       <div class="container">
 
-        <a href="#top"><img src="Image/GlobalTrivialogo.png" class="animate__animated animate__fadeInLeft" alt="Logo"
+        <a href="#top"><img src="Images/GlobalTrivialogo.png" class="animate__animated animate__fadeInLeft" alt="Logo"
             style="width: 9rem; height: 4rem;"></a>
 
         <button class="navbar-toggler" onclick="myFunction(this)" type="button" data-bs-toggle="collapse"
@@ -47,46 +47,60 @@
   </header>
 
   <div id="home">
-    <div class="box" id="userInfoForm">
-      <span class="border-line"></span>
-      <form>
-        <h1>TriviaGame</h1>
-        <div class="inputBox">
-          <label for="nameInput" class="form-label"><span>Name</span></label>
-          <input type="text" id="nameInput" class="form-control" required>
-        </div>
-        <div class="inputBox">
-          <label for="ageInput" class="form-label"><span>Age:</span></label>
-          <input type="number" id="ageInput" class="form-control" required>
-        </div>
-        <button type="submit" class="btn">Submit</button>
-      </form>
-    </div>
+    <div class="UserInfo">
+      <div class="box" id="userInfoForm">
+        <span class="border-line"></span>
+        <form>
+          <h1>TriviaGame</h1>
+          <div class="inputBox">
+            <label for="nameInput" class="form-label"><span>Name</span></label>
+            <input type="text" id="nameInput" class="form-control" required>
+          </div>
+          <div class="inputBox">
+            <label for="ageInput" class="form-label"><span>Age:</span></label>
+            <input type="number" id="ageInput" class="form-control" required>
+          </div>
+          <button type="submit" class="btn">Submit</button>
+        </form>
+      </div>
 
-    <div>
-      <div id="congratulations" style="display: none;">
-        <h2>Welcome to GlobalTrivia</h2>
-        <p>Are you ready for trivia questions?</p>
-        <button id="startGameBtn" class="btn btn-primary">Start the game</button>
+      <div class="WelcomePopup">
+        <div class="WelcomeUserdiv" id="congratulations" style="display: none;">
+          <h2 class="text-center">Welcome to GlobalTrivia</h2>
+          <p class="text-center">Are you ready for trivia questions?</p>
+          <button id="startGameBtn" class="btn btn-primary">Start the game</button>
+        </div>
+      </div>
+    </div> 
+    
+
+    <div class="container">
+      <div id="leaderboard" style="display: none;" class="col-md-3">
+        <h2>Leaderboard</h2>
+        <table id="leaderboardTable">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Score</th>
+            </tr>
+          </thead>
+          <tbody id="leaderboardBody"></tbody>
+        </table>
+      </div>
+      
+      <div class="fluid-container col-md-9" style="display: none; justify-content: center; align-items: center; height: 100vh;">
+        <div>
+          <h1 class="text-center">Country Trivia Game</h1>
+          <p id="timer"></p>
+          <h2 id="question"></h2>
+          <div id="options" class="options"></div>
+          <p id="feedback"></p>
+          <button id="nextBtn" style="display: none;" onclick="nextQuestion()">Next Question</button>
+          <p id="score"></p>
+        </div>
       </div>
     </div>
-    <div>
-      <div id="congratulations" style="display: none;">
-        <h2>Welcome to GlobalTrivia</h2>
-        <p>Are you ready for trivia questions?</p>
-        <button id="startGameBtn" class="btn btn-primary">Start the game</button>
-      </div>
-    </div>
-
-    <div class="fluid-container d-none">
-      <h1 class="text-center">Country Trivia Game</h1>
-      <p id="timer"></p>
-      <h2 id="question"></h2>
-      <div id="options" class="options"></div>
-      <p id="feedback"></p>
-      <button id="nextBtn" style="display: none;" onclick="nextQuestion()">Next Question</button>
-      <p id="score"></p>
-    </div>
+  
   </div>
 
   <div class="fluid-container d-none" id="countries">
