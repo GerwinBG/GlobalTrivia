@@ -71,13 +71,6 @@
 
 /*This TriviaGame Entry Form*/
 
-/*
-#home {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-} */
-
 .UserInfo {
   display: flex;
   justify-content: center;
@@ -292,7 +285,8 @@
   border-radius: 50%;
 }
 
-.outer button, .outer span {
+.outer button,
+.outer span {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -301,12 +295,12 @@
 
 .outer button {
   background: #111;
-  color:#f2f2f2;
+  color: #f2f2f2;
   outline: none;
   border: none;
   font-size: 20px;
   z-index: 9;
-  Letter-spacing: 1px;
+  letter-spacing: 1px;
   text-transform: uppercase;
   cursor: pointer;
 }
@@ -327,7 +321,7 @@
   border-radius: 50%;
 }
 
-.outer:hover span:nth-child(2){
+.outer:hover span:nth-child(2) {
   filter: blur(14px);
 }
 
@@ -352,6 +346,11 @@ div#gameSection {
 
 #countries h1 {
   text-align: center;
+}
+
+.dropdown {
+  display: flex;
+  justify-content: end;
 }
 
 .cardCountry {

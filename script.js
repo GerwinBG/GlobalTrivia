@@ -220,8 +220,8 @@ const loadCountryAPI = () => {
 const displayCountries = countries => {
   const countriesHTML = countries.map(country => getCountry(country))
   // displaying div to HTML
-  const container =document.getElementById('cardCountry');
-  container.innerHTML = countriesHTML.join(' ');
+  const containerMap =document.getElementById('cardCountry');
+  containerMap.innerHTML = countriesHTML.join(' ');
 }
 
 
@@ -234,7 +234,8 @@ const getCountry = (country) =>  {
       <div class="card-body">    
         <h5>${country.name.common}</h5>
         <p class="card-text">Capital: ${country.capital}</p> 
-        <p class="card-text">Continent: ${country.continents}</p> 
+        <p class="card-text">Region: ${country.continents}</p>
+        <p class="card-text">Population: ${country.population}</p>
       </div>  
     </div>
 
