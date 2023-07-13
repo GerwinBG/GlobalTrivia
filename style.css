@@ -282,6 +282,13 @@ nav {
   font-family: "signika", sans-serif;
 }
 
+.caption-keywords {
+  background-color: rgba(250, 141, 13, 0.8);
+  border-radius: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
 .outer {
   position: relative;
   margin: 0 auto;
@@ -344,6 +351,45 @@ nav {
     filter: hue-rotate(360deg);
   }
 }
+
+/* This is for leaderboard styling */
+
+.leaderboardbox {
+  position: relative;
+  min-width: 425px;
+  background: #18d7e8;
+  padding: 20px;
+  box-shadow: 0 35px 50px rgba(0, 0, 0, 0.1);
+}
+
+.leaderboardbox::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: calc(100% - 75px);
+  height: 100%;
+  background: #f2f2f2;
+}
+
+.leaderboardbox h3 {
+  position: relative;
+  color: #333;
+  font-size: 1.53m;
+  margin-bottom: 20px;
+  padding-left: 70px;
+
+}
+
+.leaderboardbox .list {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  margin: 10px 0;
+  cursor: pointer;
+}
+
 
 div#gameSection {
   margin-top: 3rem;
