@@ -5,53 +5,52 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Globe Trivia</title>
-  <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" href="./images/Globetriviafavicon.png">
+
+
 </head>
 
 <body>
 
-  <header id="top">
+  <nav class="navbar navbar-expand-lg px-5 fixed-top">
 
-    <nav class="navbar navbar-expand-lg bg-light fixed-top">
-      <div class="container">
+    <a href="index.html"><img src="Images/GlobalTrivialogo.png" class="animate__animated animate__fadeInLeft" alt="Logo"
+        style="width: 9rem; height: 4rem;"></a>
 
-        <a href="index.html"><img src="Images/GlobalTrivialogo.png" class="animate__animated animate__fadeInLeft"
-            alt="Logo" style="width: 9rem; height: 4rem;"></a>
+    <button class="navbar-toggler" onclick="myFunction(this)" type="button" data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+      aria-label="Toggle navigation">
+      <div class="bar1"></div>
+      <div class="bar2"></div>
+      <div class="bar3"></div>
+    </button>
 
-        <button class="navbar-toggler" onclick="myFunction(this)" type="button" data-bs-toggle="collapse"
-          data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-          aria-label="Toggle navigation">
-          <div class="bar1"></div>
-          <div class="bar2"></div>
-          <div class="bar3"></div>
-        </button>
+    <div class="collapse navbar-collapse text-center " id="navbarSupportedContent">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0 mb-2">
+        <li class="nav-item animate__animated animate__flipInX">
+          <span class="nav-link active" onclick="navigateToHome()">TRIVIA GAME</span>
+        </li>
+        <li class="nav-item animate__animated animate__flipInX">
+          <span class="nav-link" onclick="navigateToCountries()">COUNTRIES</span>
+        </li>
+        <li class="nav-item animate__animated animate__flipInX">
+          <span class="nav-link" onclick="navigateToAbout()">ABOUT US</span>
+        </li>
+      </ul>
+    </div>
 
-        <div class="collapse navbar-collapse text-center " id="navbarSupportedContent">
-          <ul class="navbar-nav ms-auto mb-2 mb-lg-0 mb-2">
-            <li class="nav-item animate__animated animate__flipInX">
-              <span onclick="navigateToHome()">TRIVIA GAME</span>
-            </li>
-            <li class="nav-item animate__animated animate__flipInX">
-              <span onclick="navigateToCountries()">COUNTRIES</span>
-            </li>
-            <li class="nav-item animate__animated animate__flipInX">
-              <span onclick="navigateToAbout()">ABOUT US</span>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-
-  </header>
+  </nav>
 
   <div id="home">
     <div class="UserInfo">
-      <div class="box" id="userInfoForm">
+      <div class="box" id="userInfoForm" data-aos="fade-up">
         <span class="border-line"></span>
         <form>
           <h1>TriviaGame</h1>
@@ -69,7 +68,7 @@
 
       <div class="WelcomePopup">
         <div id="congratulations" style="display: none;">
-          <h1 class="text-center text-white">Welcome to GlobalTrivia</h1>
+          <h1 class="text-center text-white">Welcome to GlobalTrivia!</h1>
           <p class="text-center text-white">Are you ready for trivia questions?</p>
           <div class="outer circle">
             <button id="startGameBtn">Start</button>
@@ -107,13 +106,14 @@
           <p id="score"></p>
         </div>
       </div>
+
     </div>
 
   </div>
 
   <div class="fluid-container d-none" id="countries">
     <h1>Countries Gallery</h1>
-    <div class="container searchBar">
+    <div class="container my-5 d-flex justify-content-between searchBar">
 
       <div class="input-group">
         <div class="form-outline">
@@ -122,18 +122,17 @@
         <button type="button" class="btn btn-primary">
           <i class="fas fa-search"></i>
         </button>
+      </div>
 
-        <div class="dropdown">
-          <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
-            aria-expanded="false">
-            Dropdown button
-          </button>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-          </ul>
-        </div>
+      <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Dropdown button
+        </button>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="#">Action</a></li>
+          <li><a class="dropdown-item" href="#">Another action</a></li>
+          <li><a class="dropdown-item" href="#">Something else here</a></li>
+        </ul>
       </div>
 
     </div>
@@ -155,6 +154,10 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
     crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
 </body>
 
 </html>

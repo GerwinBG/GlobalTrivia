@@ -18,22 +18,30 @@
   font-family: "Roboto Flex", sans-serif;
 }
 
-.nav-item span {
-  margin: 5rem 3rem;
-  color: var(--color4);
-  transition: all 0.2s ease-in;
-  font-weight: 800;
-  padding: 5px 10px;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+nav {
+  background-color: rgba(255, 255, 255, 0.5);
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
 }
 
+.nav-link {
+  border: none;
+  outline: none;
+  margin: 5rem 3rem;
+  transition: all 0.2s ease-in;
+  font-weight: 900;
+  padding: 5px 10px;
+  cursor: pointer;
+  color: var(--color5);
+}
+
+.active,
 .nav-item span:hover {
   padding: 5px 10px;
   border-radius: 25px;
-  color: var(--color2);
   font-weight: 800;
+  color: var(--color2);
   background-color: var(--color3);
-  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
 }
 
 .navbar-toggler {
@@ -83,6 +91,7 @@
 
 .box {
   position: relative;
+  margin-top: 100px;
   width: 380px;
   height: 420px;
   display: flex;
@@ -203,7 +212,7 @@
 
 .box h1 {
   color: var(--color1);
-  font-family: "Roboto Flex", sans-serif;
+  font-family: "signika", sans-serif;
   font-weight: bolder;
   letter-spacing: 2px;
   text-align: center;
@@ -262,6 +271,7 @@
 
 .WelcomePopup {
   position: relative;
+  margin-top: 50px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -364,17 +374,19 @@ div#gameSection {
 }
 
 .card {
-  width: 15rem;
+  width: 18rem;
   box-shadow: 0 1px 3px rgb(28, 211, 245);
-  border: 10px solid black;
 }
 
 .card:hover {
-  box-shadow: 2px 5px 8px rgb(28, 211, 245);
+  box-shadow: 0 3px 10px rgb(28, 211, 245);
+  transition: all 0.3s ease-in-out;
 }
 .card-img-top {
-  width: 10rem;
+  margin: 0.5rem auto;
+  width: 17rem;
   height: 10rem;
+  border-radius: 5px;
   border: 1px solid black;
 }
 
