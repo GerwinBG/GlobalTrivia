@@ -213,7 +213,6 @@ const loadCountryAPI = () => {
 }
 // display all countries
 const displayCountries = countries => {
-  console.log(countries);
   const countriesHTML = countries.map(country => getCountry(country))
   // displaying div to HTML
   const container =document.getElementById('cardCountry');
