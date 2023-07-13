@@ -285,7 +285,7 @@ div#gameSection {
 }
 
 .card {
-  width: 18rem;
+  width: 15rem;
   box-shadow: 0 1px 3px rgb(28, 211, 245);
   border: 10px solid black;
 }
@@ -294,7 +294,16 @@ div#gameSection {
   box-shadow: 2px 5px 8px rgb(28, 211, 245);
 }
 .card-img-top {
-  width: 17rem;
+  width: 10rem;
   height: 10rem;
   border: 1px solid black;
+}
+
+.card-body {
+  height: 10rem;
+}
+.card-body p {
+  font-size: 0.8rem;
+  margin: 0;
+  padding: 0;
 }
