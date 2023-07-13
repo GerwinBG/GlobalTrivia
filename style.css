@@ -70,9 +70,6 @@
   transform: translate(0, -8px) rotate(45deg);
 }
 
-header {
-  margin-bottom: 7rem;
-}
 
 .nav-item span {
   margin: 0 2rem;
