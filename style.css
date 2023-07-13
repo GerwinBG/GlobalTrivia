@@ -93,7 +93,7 @@
   background-image: url('./images/Background-image.jpg');
   background-size: cover;
   background-position: center;
-  height: 90vh;
+  height: 100vh;
 }
 
 .box {
@@ -218,6 +218,7 @@
 
 .box h1 {
   color: var(--color1);
+  font-family: "Roboto Flex", sans-serif;
   font-weight: bolder;
   letter-spacing: 2px;
   text-align: center;
@@ -281,9 +282,14 @@
   align-items: center;
 }
 
+.WelcomePopup h1 {
+  font-size: 60px;
+  font-family: "signika", sans-serif;
+}
+
 .outer {
   position: relative;
-  margin-left: 100px;
+  margin: 0 auto;
   background: linear-gradient(#14ffe9, #ffeb3b, #ff00e0);
 }
 
