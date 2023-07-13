@@ -284,16 +284,9 @@ header {
   align-items: center;
 }
 
-.center {
-  display: flex;
-  text-align: center;
-  align-items: center;
-  justify-content: center;
-}
-
 .outer {
   position: relative;
-  margin: 0 50px;
+  margin-left: 100px;
   background: linear-gradient(#14ffe9, #ffeb3b, #ff00e0);
 }
 
