@@ -90,6 +90,7 @@
 
 .box {
   position: relative;
+  margin-top: 100px;
   width: 380px;
   height: 420px;
   display: flex;
@@ -269,6 +270,7 @@
 
 .WelcomePopup {
   position: relative;
+  margin-top: 50px;
   display: flex;
   justify-content: center;
   align-items: center;
