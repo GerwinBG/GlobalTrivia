@@ -14,6 +14,8 @@ for (let i = 0; i < btns.length; i++) {
     this.className += " active";
   });
 }
+// nav end
+
 
 window.addEventListener('popstate', (e) => {
   showSelectedPage(e.state.id);
