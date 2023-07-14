@@ -48,32 +48,40 @@ const navigateToAbout = () => {
   showSelectedPage('about');
 }
 
-// For UserEntryForm
-document.getElementById('userInfoForm').addEventListener('submit', function(event) {
-  event.preventDefault();
+// This is for UserInfo to leaderboard
 
-  // Get user input values
-  const name = document.getElementById('nameInput').value;
-  const age = document.getElementById('ageInput').value;
+const userInfoForm = document.getElementById("userInfoForm");
+const welcomeUserDiv = document.getElementById("congratulations");
+const startGameBtn = document.getElementById("startGameBtn");
+const leaderboard = document.getElementById("leaderboard");
 
-  // Store user info in local storage
-  localStorage.setItem('username', name);
-  localStorage.setItem('age', age);
+// Function to handle form submission
+function handleSubmit(event) {
+  event.preventDefault(); // Prevent form submission
 
-  // Hide the form and show the congratulations section
-  document.getElementById('userInfoForm').style.display = 'none';
-  document.getElementById('congratulations').style.display = 'block';
-});
+  // Hide the user info form
+  userInfoForm.style.display = "none";
 
-const startGameBtn = document.getElementById('startGameBtn');
-const welcomePopup = document.querySelector('.WelcomePopup');
-const leaderboardSection = document.getElementById('leaderboard');
+  // Display the welcome user div
+  welcomeUserDiv.style.display = "block";
+}
 
-startGameBtn.addEventListener('click', () => {
-  welcomePopup.remove();
-  leaderboardSection.classList.remove('d-none');
-});
+// Function to handle start button click
+function handleStart() {
+  // Hide the welcome user div
+  welcomeUserDiv.style.display = "none";
 
+  // Display the leaderboard
+  leaderboard.style.display = "block";
+}
+
+// Attach event listener to form submission
+userInfoForm.addEventListener("submit", handleSubmit);
+
+// Attach event listener to start button click
+startGameBtn.addEventListener("click", handleStart);
+
+// End for leaderboard function
 
 const questionElement = document.getElementById("question");
 const optionsElement = document.getElementById("options");
