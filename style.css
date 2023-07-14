@@ -363,7 +363,7 @@ nav {
 }
 
 .leaderboardbox::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   right: 0;
@@ -378,7 +378,6 @@ nav {
   font-size: 1.53m;
   margin-bottom: 20px;
   padding-left: 70px;
-
 }
 
 .leaderboardbox .list {
@@ -389,7 +388,6 @@ nav {
   margin: 10px 0;
   cursor: pointer;
 }
-
 
 div#gameSection {
   margin-top: 3rem;
@@ -404,9 +402,29 @@ div#gameSection {
   text-align: center;
 }
 
-.dropdown {
-  display: flex;
-  justify-content: end;
+.formOutline {
+  width: 400px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  position: relative;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.formOutline input {
+  width: 100%;
+  padding: 13px 15px;
+  outline: 0;
+  border: 0;
+  font-size: 15px;
+  letter-spacing: 0.5px;
+}
+
+.formOutline i {
+  position: absolute;
+  font-size: 20px;
+  top: 1rem;
+  right: 1rem;
+  cursor: pointer;
 }
 
 .cardCountry {
