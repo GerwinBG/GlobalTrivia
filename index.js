@@ -257,7 +257,7 @@ const getCountry = (country) =>  {
     <div class="card">
       <img src="${country.flags.png}" class="card-img-top" />
       <div class="card-body">    
-        <h5>${country.name.common}</h5>
+        <h5><b>${country.name.common}</b></h5>
         <p class="card-text">Capital: ${country.capital}</p> 
         <p class="card-text">Region: ${country.region}</p>
         <p class="card-text">Population: ${country.population}</p>
