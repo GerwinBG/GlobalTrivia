@@ -14,6 +14,8 @@ for (let i = 0; i < btns.length; i++) {
     this.className += " active";
   });
 }
+// nav end
+
 
 window.addEventListener('popstate', (e) => {
   showSelectedPage(e.state.id);
@@ -257,7 +259,7 @@ const getCountry = (country) =>  {
       <div class="card-body">    
         <h5>${country.name.common}</h5>
         <p class="card-text">Capital: ${country.capital}</p> 
-        <p class="card-text">Region: ${country.continents}</p>
+        <p class="card-text">Region: ${country.region}</p>
         <p class="card-text">Population: ${country.population}</p>
       </div>  
     </div>
