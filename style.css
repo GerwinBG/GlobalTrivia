@@ -32,21 +32,26 @@ nav {
   -webkit-backdrop-filter: blur(5px);
   backdrop-filter: blur(5px);
 }
+nav a img {
+  width: 9rem;
+  height: 4rem;
+  margin-left: 5rem;
+}
 
 .nav-item span {
   border: none;
   outline: none;
-  /* margin: 5rem 3rem; */
+  font-size: 0.7rem;
   transition: all 0.2s ease-in;
   font-weight: 900;
-  /* padding: 0.5rem 1rem; */
   cursor: pointer;
   color: var(--color5);
+  display: inline-block;
+  margin-right: 5rem;
 }
 
 .active,
 .nav-item span:hover {
-  /* padding: 0.5rem 1rem; */
   border-radius: 25px;
   font-weight: 800;
   color: var(--color2);
@@ -56,6 +61,7 @@ nav {
 .navbar-toggler {
   display: inline-block;
   cursor: pointer;
+  margin-right: 10px;
 }
 
 .bar1,
@@ -68,6 +74,16 @@ nav {
   transition: 0.2s ease;
 }
 
+@media (maxwidth: 768px) {
+  .bar1,
+  .bar2,
+  .bar3 {
+    width: 10px;
+    height: 1.5px;
+    margin: 3px 0;
+  }
+}
+
 .change .bar1 {
   transform: translate(0, 8px) rotate(-45deg);
 }
@@ -78,10 +94,6 @@ nav {
 
 .change .bar3 {
   transform: translate(0, -8px) rotate(45deg);
-}
-
-.nav-item span {
-  margin: 0 2rem;
 }
 
 /* end of nav */
@@ -497,6 +509,7 @@ div #gameSection {
 }
 
 /* country cards */
+
 #countries {
   margin-top: 6rem;
 }
@@ -518,6 +531,15 @@ div #gameSection {
 }
 
 @media (max-width: 768px) {
+  .nav-item span {
+    font-size: 10px;
+    display: inline-block;
+    padding: 0.8rem 1rem;
+    margin-right: 0;
+  }
+  .navbar-toggler {
+    margin-right: 1rem;
+  }
   .searchBar {
     display: flex;
     flex-direction: column;
@@ -589,4 +611,29 @@ div #gameSection {
   font-size: 0.8rem;
   margin: 0;
   padding: 0;
+}
+@media (max-width: 560px) {
+  nav a img {
+    width: 5rem;
+    height: 2rem;
+    padding: 0;
+    margin-left: 1rem;
+  }
+  .card {
+    width: 6rem;
+    gap: 2px;
+  }
+  .card-img-top {
+    width: 5.5rem;
+    height: 4rem;
+  }
+  .card-body h5 {
+    font-size: 0.5rem;
+  }
+  .card-body p {
+    font-size: 0.3rem;
+  }
+  .card-body {
+    height: 6rem;
+  }
 }

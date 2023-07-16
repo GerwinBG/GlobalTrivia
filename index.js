@@ -234,37 +234,35 @@ fetchData();
 
 
 // Cards For Country
-
+const countriesElement = document.querySelector('.cardCountry')
 // fetchCountry
-const loadCountryAPI = () => {
-  fetch('https://restcountries.com/v3.1/all')
-  .then(res => res.json())
-  .then(data => displayCountries(data))
-}
-// display all countries
-const displayCountries = countries => {
-  const countriesHTML = countries.map(country => getCountry(country))
-  // displaying div to HTML
-  const containerMap =document.getElementById('cardCountry');
-  containerMap.innerHTML = countriesHTML.join(' ');
+async function fetchCountry () {
+  const url = await fetch("https://restcountries.com/v3.1/all");
+  const res = await url.json();
+  console.log(res);
+  res.forEach(Element => {
+    showCountry(Element)
+  });
+  
 }
 
-
-// get data and set it to Html
-const getCountry = (country) =>  {
-  console.log(country)
-  return `
-    <div class="card">
-      <img src="${country.flags.png}" class="card-img-top" />
+fetchCountry()
+function showCountry(data) {
+  const country = document.createElement("div");
+  country.classList.add("cardContainer");
+  country.innerHTML = `
+      <div class="card">
+      <img src="${data.flags.png}" class="card-img-top" />
       <div class="card-body">    
-        <h5><b>${country.name.common}</b></h5>
-        <p class="card-text">Capital: ${country.capital}</p> 
-        <p class="card-text">Region: ${country.region}</p>
-        <p class="card-text">Population: ${country.population}</p>
+       <h5><b>${data.name.common}</b></h5>
+        <p class="card-text">Capital: ${data.capital}</p> 
+        <p class="card-text">Region: ${data.region}</p>
+        <p class="card-text">Population: ${data.population}</p>
+      </div>
       </div>  
-    </div>
-
-  ` 
+  `;
+  countriesElement.appendChild(country);
 }
 
-loadCountryAPI()
+
+
