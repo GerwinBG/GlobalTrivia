@@ -24,7 +24,7 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center;
-  height: 100vh;
+  height: 40vh;
 }
 
 nav {
@@ -101,18 +101,15 @@ nav a img {
 /*This TriviaGame Entry Form*/
 
 .UserInfo {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-image: url("./images/Background-image.jpg");
-  background-size: cover;
-  background-position: center;
-  height: 100vh;
+  margin: 0 auto;
+  padding: 0;
 }
 
 .box {
-  position: relative;
-  margin-top: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 200px;
   width: 380px;
   height: 420px;
   display: flex;
@@ -291,11 +288,10 @@ nav a img {
 }
 
 .WelcomePopup {
-  position: relative;
-  margin-top: 50px;
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 200px;
 }
 
 .WelcomePopup h1 {
@@ -375,9 +371,15 @@ nav a img {
 
 /* This is for leaderboard styling */
 
+.TriviaGameSection {
+  display: flex;
+  margin: 0;
+  padding-left: 0;
+}
+
 .leaderboardbox {
-  margin-top: 80px;
   position: relative;
+  margin-left: 5px;
   min-width: 380px;
   background: var(--color1);
   padding: 20px;
@@ -504,8 +506,11 @@ nav a img {
   color: #fff;
 }
 
-div #gameSection {
-  margin-top: 3rem;
+.TriviaGame {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* country cards */
