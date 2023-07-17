@@ -525,6 +525,16 @@ div #gameSection {
   margin-right: 5rem;
 }
 
+.dropdown-menu p {
+  color: var(--color5);
+  padding-left: 1rem;
+}
+
+.dropdown-menu p:hover {
+  background-color: lightgray;
+  cursor: pointer;
+}
+
 .searchBar {
   display: flex;
   justify-content: space-between;
@@ -597,22 +607,23 @@ div #gameSection {
   transition: all 0.3s ease-in-out;
 }
 .card-img-top {
-  margin: 0.5rem auto;
-  width: 14rem;
+  margin: 0.3rem auto;
+  width: 100%;
   height: 8rem;
   border-radius: 5px;
   border: 1px solid black;
 }
 
 .card-body {
-  height: 10rem;
+  height: 9rem;
+  padding-top: 0;
 }
 .card-body p {
   font-size: 0.8rem;
   margin: 0;
   padding: 0;
 }
-@media (max-width: 560px) {
+@media (max-width: 768px) {
   nav a img {
     width: 5rem;
     height: 2rem;
@@ -620,20 +631,23 @@ div #gameSection {
     margin-left: 1rem;
   }
   .card {
-    width: 6rem;
+    width: 8rem;
+    height: 12rem;
     gap: 2px;
   }
   .card-img-top {
-    width: 5.5rem;
-    height: 4rem;
+    width: 100%;
+    height: 100%;
   }
   .card-body h5 {
     font-size: 0.5rem;
+    padding-top: 0;
+    margin-top: 0;
   }
   .card-body p {
     font-size: 0.3rem;
   }
   .card-body {
-    height: 6rem;
+    height: auto;
   }
 }
