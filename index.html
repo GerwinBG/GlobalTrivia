@@ -141,34 +141,36 @@
 
           <div class="TriviaGame">
             <h2 id="question" class="Questions">What is the capital of the <span class="caption-keywords">USA?</span></h2>
-            <div id="time">
-              <div class="circle" style="--clr: #18d7e8;">
-                <div class="dots sec_dot"></div>
-                <svg>
-                  <circle cx="70" cy="70" r="70"></circle>
-                  <circle cx="70" cy="70" r="70" id="ss"></circle>
-                </svg>
-                <div id="seconds">00 </div><span>Seconds</span></div>
+            <div class="countdown-container">
+              <div id="timer" class="countdown">
+                <div class="progress-bar"></div>
+                <div class="time-left">40:00</div>
               </div>
             </div>
-              
-              <h3 id="timer">40:00</h3>
-              <div id="choices">
-              <button onclick="checkAnswer(this)">Choices 1</button>
-              <button onclick="checkAnswer(this)">Washington, D.C.</button>
-              <button onclick="checkAnswer(this)">Choice 3</button>
-              <button onclick="checkAnswer(this)">Choice 4</button>
+            <div id="choices" class="container">
+              <div class="row">
+                <div class="column">
+                  <button onclick="checkAnswer(this)">Button A</button>
+                  <button onclick="checkAnswer(this)">Button B</button>
+                </div> 
+              </div>
             </div>
-          </div>
-    </div>
+
+            <div class="container">
+              <div class="row">
+                <div class="column">
+                  <button onclick="checkAnswer(this)">Button C</button>
+                  <button onclick="checkAnswer(this)">Button D</button>
+                </div>
+              </div>
+                
+            </div>
+              
             </div>
           </div>
         </div>
-        
       </div>
-      
     </div>
-  
   </div>  
 
 
