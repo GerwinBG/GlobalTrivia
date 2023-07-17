@@ -80,7 +80,7 @@
 
       <div id="leaderboard" class="TriviaGameSection container" style="display: none;">
         <div class="row">
-          <div class="leaderboardbox col-md-4 col-lg-4">
+          <!-- <div class="leaderboardbox col-md-4 col-lg-4">
             <h3>Top Rated Players <img src="./images/trophy.png" style="width: 60px; height: 60px;"></h3>
             <div class="list">
               <div class="imgBx">
@@ -137,17 +137,30 @@
               </div>
               <div id="trophy"><img src="./images/trophy (5).png" style="width: 35px; height: 35px;"></div>
             </div>
-          </div>
+          </div> -->
 
-          <div class="TriviaGame col-md-7 col-lg-7">
-            <div>
-              <h1 class="text-center">Country Trivia Game</h1>
-              <p id="timer"></p>
-              <h2 id="question"></h2>
-              <div id="options" class="options"></div>
-              <p id="feedback"></p>
-              <button id="nextBtn" style="display: none;" onclick="nextQuestion()">Next Question</button>
-              <p>Score: <span class="score">0</span></p>
+          <div class="TriviaGame">
+            <h2 id="question" class="Questions">What is the capital of the <span class="caption-keywords">USA?</span></h2>
+            <div id="time">
+              <div class="circle" style="--clr: #18d7e8;">
+                <div class="dots sec_dot"></div>
+                <svg>
+                  <circle cx="70" cy="70" r="70"></circle>
+                  <circle cx="70" cy="70" r="70" id="ss"></circle>
+                </svg>
+                <div id="seconds">00 </div><span>Seconds</span></div>
+              </div>
+            </div>
+              
+              <h3 id="timer">40:00</h3>
+              <div id="choices">
+              <button onclick="checkAnswer(this)">Choices 1</button>
+              <button onclick="checkAnswer(this)">Washington, D.C.</button>
+              <button onclick="checkAnswer(this)">Choice 3</button>
+              <button onclick="checkAnswer(this)">Choice 4</button>
+            </div>
+          </div>
+    </div>
             </div>
           </div>
         </div>
