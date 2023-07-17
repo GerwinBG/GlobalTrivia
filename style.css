@@ -379,6 +379,7 @@ nav a img {
 
 .leaderboardbox {
   position: relative;
+  margin-top: 0;
   margin-left: 5px;
   min-width: 380px;
   background: var(--color1);
