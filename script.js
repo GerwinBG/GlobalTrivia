@@ -91,6 +91,30 @@ const feedbackElement = document.getElementById("feedback");
 const scoreElement = document.getElementById("score");
 const timerElement = document.getElementById("timer");
 const nextButton = document.getElementById("nextBtn");
+// const topPlayers =[
+//   {
+//     name: "Klane",
+//     score: 100,
+//   },
+//   {
+//     name: "Mariya",
+//     score: 90,
+//   },
+//   {
+//     name: "Gerwin",
+//     score: 80,
+//   },
+//   {
+//     name: "Baneknek",
+//     score: 95,
+//   },
+//   {
+//     name: "Mendz",
+//     score: 75,
+//   }
+
+// ]
+
 
 let currentQuestionIndex = 0;
 let score = 0;
