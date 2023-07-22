@@ -19,12 +19,11 @@
 }
 body {
   position: relative;
-  background-image: url(./Images/Background-image.jpg);
+  background-image: url(../Images/Background-image.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center;
-  height: 100vh;
 }
 
 nav {
@@ -38,7 +37,7 @@ nav a img {
   margin-left: 5rem;
 }
 
-.nav-item span {
+li .nav-link {
   border: none;
   outline: none;
   font-size: 0.7rem;
@@ -50,8 +49,14 @@ nav a img {
   margin-right: 5rem;
 }
 
-.active,
-.nav-item span:hover {
+li .nav-link:hover {
+  border-radius: 25px;
+  font-weight: 800;
+  color: var(--color2);
+  background-color: var(--color3);
+}
+.navbar-nav .nav-link.active,
+.navbar-nav .show > .nav-link {
   border-radius: 25px;
   font-weight: 800;
   color: var(--color2);
@@ -104,7 +109,7 @@ nav a img {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 95vh;
 }
 
 .box {
@@ -603,148 +608,4 @@ div #gameSection {
 
 .row button:hover {
   background-color: #4287f5;
-}
-
-/* country cards */
-
-#countries {
-  margin-top: 6rem;
-}
-
-#countries h1 {
-  text-align: center;
-  color: var(--color2);
-}
-
-.dropdown,
-.input-group {
-  margin-left: 5rem;
-  margin-right: 5rem;
-}
-
-.dropdown-menu p {
-  color: var(--color5);
-  padding-left: 1rem;
-}
-
-.dropdown-menu p:hover {
-  background-color: lightgray;
-  cursor: pointer;
-}
-
-.searchBar {
-  display: flex;
-  justify-content: space-between;
-}
-
-@media (max-width: 768px) {
-  .nav-item span {
-    font-size: 10px;
-    display: inline-block;
-    padding: 0.8rem 1rem;
-    margin-right: 0;
-  }
-  .navbar-toggler {
-    margin-right: 1rem;
-  }
-  .searchBar {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-}
-
-.formOutline {
-  width: 400px;
-  position: relative;
-  border-radius: 5px;
-  overflow: hidden;
-}
-
-.formOutline input {
-  width: 100%;
-  padding: 13px 15px;
-  outline: 0;
-  border: 0;
-  font-size: 15px;
-  letter-spacing: 0.5px;
-}
-
-.formOutline:hover {
-  box-shadow: 0 2px 10px var(--color1);
-}
-
-.formOutline i {
-  position: absolute;
-  font-size: 20px;
-  top: 1rem;
-  right: 1rem;
-  cursor: pointer;
-}
-
-.cardCountry {
-  max-width: 100%;
-  margin: 0 auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 1rem;
-}
-
-.card {
-  width: 15rem;
-  box-shadow: 0 1px 3px rgb(28, 211, 245);
-  border: 2px solid var(--color1);
-}
-
-.card:hover {
-  box-shadow: 0 5px 10px rgb(28, 211, 245);
-  transition: all 0.3s ease-in-out;
-}
-.card-img-top {
-  margin: 0.3rem auto;
-  width: 100%;
-  height: 8rem;
-  border-radius: 5px;
-  border: 1px solid black;
-}
-
-.card-body {
-  height: 9rem;
-  padding-top: 0;
-}
-.card-body p {
-  font-size: 0.8rem;
-  margin: 0;
-  padding: 0;
-}
-@media (max-width: 768px) {
-  nav a img {
-    width: 5rem;
-    height: 2rem;
-    padding: 0;
-    margin-left: 1rem;
-  }
-  .card {
-    width: 8rem;
-    height: 13rem;
-    gap: 2px;
-  }
-  .card .card-img-top {
-    width: 100%;
-    height: 5rem;
-  }
-  .card-body h5 {
-    font-size: 0.5rem;
-    padding-top: 0;
-    margin-top: 0;
-  }
-  .card-body p {
-    font-size: 0.3rem;
-  }
-  .card-body {
-    height: auto;
-  }
 }
