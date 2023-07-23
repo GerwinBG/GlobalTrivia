@@ -67,7 +67,7 @@
             <label for="ageInput" class="form-label"><span>Age:</span></label>
             <input type="number" id="ageInput" class="form-control" required>
           </div>
-          <button type="submit" class="btn">Submit</button>
+          <button type="submit" id="submitBtn" class="btn">Submit</button>
         </form>
       </div>
 
@@ -84,7 +84,7 @@
       </div>
 
 
-      <div class="CategoryBox container" id="categorySection" style="display: none;">
+      <!-- <div class="CategoryBox container" id="categorySection" style="display: none;">
         <span class="border-line"></span>
         <h2>Select Category:</h2>
         <ul>
@@ -92,35 +92,40 @@
           <li><button id="moderateButton" onclick="startGame('moderate')">Moderate</button></li>
           <li><button id="hardButton" onclick="startGame('hard')">Hard</button></li>
         </ul>
+      </div> -->
+
+      <!-- <div id="easyTriviaGame" class="container" style="display: none;">
+        <h1>Easy Category - Capital Cities Quiz</h1>
+        <div id="question-container">
+        </div>
       </div>
 
-      <div id="TriviaGame" class="TriviaGameSection container" style="display: none;">
-        <div class="TriviaGame">
-          <h2 id="question" class="Questions"></h2>
+      <div id="moderateTriviaGame" class="container" style="display: none;">
+        <h1></h1>
+        <div id="question-container">
+        </div>
+      </div>
 
-          <div class="countdown-container">
-            <div id="timer" class="countdown">
-              <div class="progress-bar"></div>
-              <div class="time-left">00:40</div>
-            </div>
-          </div>
+      <div id="hardTriviaGame" class="container" style="display: none;">
+        <h1></h1>
+        <div id="question-container">
+        </div>
+      </div> -->
 
-          <div id="choices" class="Answerbuttons">
-            <div class="row">
-              <div class="column">
-                <button onclick="checkAnswer(this)"></button>
-                <button onclick="checkAnswer(this)"></button>
-              </div>
-            </div>
-
-            <div class="row">
-              <div class="column">
-                <button onclick="checkAnswer(this)"></button>
-                <button onclick="checkAnswer(this)"></button>
-              </div>
-            </div>
+      <div id="triviaGameSection"class="container" style="display: none;">
+        <h1>Country Question Game</h1>
+        <p>Score: <span id="score">0</span></p>
+      
+        <div id="question-container">
+          <h2 id="question"></h2>
+          <div id="choices">
+            <button class="choice"></button>
+            <button class="choice"></button>
+            <button class="choice"></button>
+            <button class="choice"></button>
           </div>
         </div>
+
       </div>
     </div>
   </div>
