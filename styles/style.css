@@ -20,7 +20,7 @@
 body {
   position: relative;
   background-image: url(../Images/Background-image.jpg);
-  background-size: cover;
+  background-size: auto;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center;
@@ -609,8 +609,6 @@ div #gameSection {
 .row button:hover {
   background-color: #4287f5;
 }
-
-
 
 #categorySection {
   display: none;
