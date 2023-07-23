@@ -83,17 +83,27 @@
         </div>
       </div>
 
+
+      <div class="box container" id="categorySection" style="display: none;">
+        <h2>Select Category:</h2>
+        <ul>
+          <li><button onclick="startGame('easy')">Easy</button></li>
+          <li><button onclick="startGame('moderate')">Moderate</button></li>
+          <li><button onclick="startGame('hard')">Hard</button></li>
+        </ul>
+      </div>
+
       <div id="TriviaGame" class="TriviaGameSection container" style="display: none;">
         <div class="TriviaGame">
-          <h2 id="question" class="Questions">What is the capital of the <span class="caption-keywords">USA?</span></h2>
-          
+          <h2 id="question" class="Questions">Question Here</h2>
+      
           <div class="countdown-container">
             <div id="timer" class="countdown">
               <div class="progress-bar"></div>
               <div class="time-left">00:40</div>
             </div>
           </div>
-        
+      
           <div id="choices" class="Answerbuttons">
             <div class="row">
               <div class="column">
@@ -101,7 +111,7 @@
                 <button onclick="checkAnswer(this)">Button B</button>
               </div>
             </div>
-            
+      
             <div class="row">
               <div class="column">
                 <button onclick="checkAnswer(this)">Button C</button>

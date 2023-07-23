@@ -58,95 +58,131 @@ const navigateToLeaderboard = () => {
 const userInfoForm = document.getElementById("userInfoForm");
 const welcomeUserDiv = document.getElementById("congratulations");
 const startGameBtn = document.getElementById("startGameBtn");
-const leaderboard = document.getElementById("leaderboard");
+const categorySection = document.getElementById("categorySection");
+const triviaGameSection = document.getElementById("TriviaGame");
 
-// Function to handle form submission
-function handleSubmit(event) {
-  event.preventDefault(); // Prevent form submission
+  
+    function handleSubmit(event) {
+      event.preventDefault(); 
 
-  // Hide the user info form
-  userInfoForm.style.display = "none";
+      // Hide the user info form
+      userInfoForm.style.display = "none";
 
-  // Display the welcome user div
-  welcomeUserDiv.style.display = "block";
+      // Display the welcome user div
+      welcomeUserDiv.style.display = "block";
 
-  // Scroll to the welcome user div
-  welcomeUserDiv.scrollIntoView({ behavior: "smooth" });
+      // Scroll to the welcome user div
+      welcomeUserDiv.scrollIntoView({ behavior: "smooth" });
+    }
+
+    // Function to show the category section and hide the welcome section
+    function showCategorySection() {
+      welcomeUserDiv.style.display = "none";
+      categorySection.style.display = "block";
+    }
+
+    // Function to start the game based on the selected category
+    function startGame(category) {
+      // Hide the category section
+      categorySection.style.display = "none";
+
+      // Show the TriviaGame section
+      triviaGameSection.style.display = "block";
+
+    }
+
+    userInfoForm.addEventListener("submit", handleSubmit);
+    startGameBtn.addEventListener("click", showCategorySection);
+
+// Define mytrivia questions and answers
+const triviaQuestions = [
+  {
+    question: "What is the Capital of USA?",
+    choices: ["Random City 1", "Random City 2", "Washington D.C", "Random City 3"],
+    correctChoice: "Washington D.C"
+  },
+  // Add other questions here...
+];
+
+let currentQuestionIndex = 0;
+let score = 0;
+let countdownTimer;
+
+function startTriviaGame() {
+  document.getElementById("TriviaGame").style.display = "block";
+  showQuestion(currentQuestionIndex);
+  startTimer();
 }
 
-// Function to handle start button click
-function handleStart() {
-  // Hide the welcome user div
-  welcomeUserDiv.style.display = "none";
-
-  // Display the leaderboard
-  leaderboard.style.display = "block";
+function showQuestion(index) {
+  if (index < triviaQuestions.length) {
+    const questionElement = document.getElementById("question");
+    const choicesElement = document.getElementById("choices");
+    questionElement.textContent = triviaQuestions[index].question;
+    const choicesButtons = choicesElement.getElementsByTagName("button");
+    for (let i = 0; i < choicesButtons.length; i++) {
+      choicesButtons[i].textContent = triviaQuestions[index].choices[i];
+    }
+  } else {
+    showGameOverPopup();
+  }
 }
 
-// Attach event listener to form submission
-userInfoForm.addEventListener("submit", handleSubmit);
-
-// Attach event listener to start button click
-startGameBtn.addEventListener("click", handleStart);
-
-// End for leaderboard function
-
-const questionElement = document.getElementById("question");
-const optionsElement = document.getElementById("options");
-const feedbackElement = document.getElementById("feedback");
-const scoreElement = document.getElementById("score");
-const timerElement = document.getElementById("timer");
-const progressBarElement = document.querySelector('.progress-bar');
-const countdownContainer = document.querySelector('.countdown-container');
-const nextButton = document.getElementById("nextBtn");
-// const topPlayers =[
-//   {
-//     name: "Klane",
-//     score: 100,
-//   },
-//   {
-//     name: "Mariya",
-//     score: 90,
-//   },
-//   {
-//     name: "Gerwin",
-//     score: 80,
-//   },
-//   {
-//     name: "Baneknek",
-//     score: 95,
-//   },
-//   {
-//     name: "Mendz",
-//     score: 75,
-//   }
-
-// ]
-
-
-// This for Trivia game timer 
-let timeLeft = 40; 
-
-function startCountdown() {
-  const countdownInterval = setInterval(() => {
-    const progress = (timeLeft / 40) * 100;
-    progressBarElement.style.height = `${progress}%`;
-
-    const seconds = timeLeft % 60;
-
-    timerElement.innerHTML = `00:${seconds.toString().padStart(2, '0')}`;
-
-    timeLeft--;
-
-    if (timeLeft < 0) {
-      clearInterval(countdownInterval);
-      timerElement.innerHTML = "Time's up!";
-      countdownContainer.style.visibility = 'hidden';
+function startTimer() {
+  let timeLeft = 40;
+  const timerElement = document.getElementById("timer");
+  const progressBar = timerElement.querySelector(".progress-bar");
+  const timeLeftElement = timerElement.querySelector(".time-left");
+  countdownTimer = setInterval(() => {
+    timeLeft -= 1;
+    const progressWidth = (timeLeft / 40) * 100;
+    progressBar.style.width = `${progressWidth}%`;
+    timeLeftElement.textContent = `00:${timeLeft.toString().padStart(2, "0")}`;
+    if (timeLeft <= 0) {
+      clearInterval(countdownTimer);
+      showOutOfTimePopup();
     }
   }, 1000);
 }
 
-startCountdown();
+function checkAnswer(selectedButton) {
+  const selectedAnswer = selectedButton.textContent;
+  const correctAnswer = triviaQuestions[currentQuestionIndex].correctChoice;
+  clearInterval(countdownTimer);
+
+  if (selectedAnswer === correctAnswer) {
+    score += 10;
+    showCorrectAnswerPopup();
+  } else {
+    showWrongAnswerPopup();
+  }
+}
+
+function showCorrectAnswerPopup() {
+  // Show the "Congratulations! you got the correct answer" popup
+  // Update the score and other necessary elements
+  // Implement the "Next Question" functionality
+}
+
+function showWrongAnswerPopup() {
+  // Show the "Sorry you're wrong!" popup
+  // Implement the "Next Question" functionality
+}
+
+function showOutOfTimePopup() {
+  // Show the "Sorry, you're running out of time!" popup
+  // Implement the "Next Question" functionality
+}
+
+function showGameOverPopup() {
+  // Show the game over popup with the summary of correct answers and total score
+  // Implement the leaderboard update functionality
+  // Reset the game state to allow the user to select a category again
+}
+
+// Add an event listener to the button that starts the trivia game
+const startButton = document.getElementById("startTriviaButton");
+startButton.addEventListener("click", startTriviaGame);
 
 
 
