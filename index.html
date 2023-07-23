@@ -88,15 +88,15 @@
         <span class="border-line"></span>
         <h2>Select Category:</h2>
         <ul>
-          <li><button onclick="startGame('easy')" class="button1">Easy</button></li>
-          <li><button onclick="startGame('moderate')" class="button2">Moderate</button></li>
-          <li><button onclick="startGame('hard')" class="button3">Hard</button></li>
+          <li><button id="easyButton" onclick="startGame('easy')">Easy</button></li>
+          <li><button id="moderateButton" onclick="startGame('moderate')">Moderate</button></li>
+          <li><button id="hardButton" onclick="startGame('hard')">Hard</button></li>
         </ul>
       </div>
 
       <div id="TriviaGame" class="TriviaGameSection container" style="display: none;">
         <div class="TriviaGame">
-          <h2 id="question" class="Questions">Question Here</h2>
+          <h2 id="question" class="Questions"></h2>
 
           <div class="countdown-container">
             <div id="timer" class="countdown">
@@ -108,15 +108,15 @@
           <div id="choices" class="Answerbuttons">
             <div class="row">
               <div class="column">
-                <button onclick="checkAnswer(this)">Button A</button>
-                <button onclick="checkAnswer(this)">Button B</button>
+                <button onclick="checkAnswer(this)"></button>
+                <button onclick="checkAnswer(this)"></button>
               </div>
             </div>
 
             <div class="row">
               <div class="column">
-                <button onclick="checkAnswer(this)">Button C</button>
-                <button onclick="checkAnswer(this)">Button D</button>
+                <button onclick="checkAnswer(this)"></button>
+                <button onclick="checkAnswer(this)"></button>
               </div>
             </div>
           </div>
