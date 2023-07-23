@@ -151,7 +151,7 @@
   }
   .card {
     width: 8rem;
-    height: 13rem;
+    height: 13.5rem;
   }
   .card .card-img-top {
     width: 100%;
@@ -163,7 +163,7 @@
     margin-top: 0;
   }
   .card-body p {
-    font-size: 0.3rem;
+    font-size: 0.6rem;
   }
   .card-body {
     height: auto;
