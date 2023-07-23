@@ -610,7 +610,59 @@ div #gameSection {
   background-color: #4287f5;
 }
 
+.CategoryBox {
+  position: relative;
+  margin-top: 100px;
+  width: 380px;
+  height: 420px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  overflow: hidden;
+}
+  
 
+.CategoryBox::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 380px;
+  height: 420px;
+  background: linear-gradient(
+    0deg,
+    transparent,
+    transparent,
+    #18d7e8,
+    #18d7e8,
+    #18d7e8
+  );
+  z-index: 1;
+  transform-origin: bottom right;
+  animation: animate 6s linear infinite;
+}
+
+.CategoryBox::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 380px;
+  height: 420px;
+  background: linear-gradient(
+    0deg,
+    transparent,
+    transparent,
+    #18d7e8,
+    #18d7e8,
+    #18d7e8
+  );
+  z-index: 1;
+  transform-origin: bottom right;
+  animation: animate 6s linear infinite;
+  animation-delay: -3s;
+}
 
 #categorySection {
   position: absolute;
