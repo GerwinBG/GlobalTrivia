@@ -3,7 +3,7 @@
 function myFunction(x) {
   x.classList.toggle("change");
 } 
-const btnContainer = document.querySelector("navbarSupportedContent");
+const btnContainer = document.querySelector(".navbar-collapse");
 
 const btns = document.getElementsByClassName("nav-link");
 
@@ -21,7 +21,7 @@ window.addEventListener('popstate', (e) => {
   showSelectedPage(e.state.id);
 });
 
-const pages = ['home', 'countries', 'about'];
+const pages = ['home', 'countries', 'about', 'leaderboard'];
 
 history.replaceState({ id: 'home' }, 'Trivia Game', './index.html');
 const showSelectedPage = (selectedPage) => {
@@ -48,6 +48,11 @@ const navigateToCountries = () => {
 const navigateToAbout = () => {
   history.pushState({ id: 'about' }, 'About', './index.html#about');
   showSelectedPage('about');
+}
+
+const navigateToLeaderboard = () => {
+  history.pushState({ id: 'leaderboard' }, 'Leaderboard', './index.html#leaderboard');
+  showSelectedPage('leaderboard');
 }
 
 const userInfoForm = document.getElementById("userInfoForm");
