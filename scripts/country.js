@@ -12,24 +12,27 @@ async function fetchCountry () {
     showCountry(Element)
   });
 }
-fetchCountry()
+
 // 
 
-
+fetchCountry()
 function showCountry(data) {
   const country = document.createElement("div");
   country.classList.add("card");
   country.innerHTML = `
-        <img src="${data.flags.png}" class="card-img-top" />
-        <hr class="p=0">
-        <div class="card-body">    
-        <h5 class="countryName"><b>${data.name.common}</b></h5>
-          <p><strong>Capital:</strong> ${data.capital}</p> 
-          <p class="regionName">Region: ${data.region}</p>
-          <p>Population: ${data.population}</p>
+            <img src="${data.flags.png}" class="card-img-top" />
+            <hr class="p=0">
+            <div class="card-body">    
+            <h5 class="countryName"><b>${data.name.common}</b></h5>
+            <p><b>Capital:</b>${data.capital}</p> 
+            <p class="regionName"><b>Region:</b>${data.region}</p>
+            <p><b>Population:</b>${data.population}</p>
         </div> 
   `;
   countriesElement.appendChild(country);
+  country.addEventListener("click", ()=> {
+    showCountryDetail(data)
+  })
 }
 
 
@@ -53,3 +56,5 @@ search.addEventListener("input", ()=>{
     }
    });
 })
+
+
