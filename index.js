@@ -120,17 +120,16 @@ const nextButton = document.getElementById("nextBtn");
 
 
 // This for Trivia game timer 
-let timeLeft = 40 * 60; // 40 minutes
+let timeLeft = 40; 
 
 function startCountdown() {
   const countdownInterval = setInterval(() => {
-    const progress = (timeLeft / (40 * 60)) * 100;
+    const progress = (timeLeft / 40) * 100;
     progressBarElement.style.height = `${progress}%`;
 
-    const minutes = Math.floor(timeLeft / 60);
     const seconds = timeLeft % 60;
 
-    timerElement.innerHTML = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+    timerElement.innerHTML = `00:${seconds.toString().padStart(2, '0')}`;
 
     timeLeft--;
 
