@@ -14,16 +14,10 @@
   margin-top: 6rem;
 }
 
-#countries h1 {
+#countries .title {
   text-align: center;
   color: var(--color2);
   font-family: "Signika";
-}
-
-.dropdown,
-.input-group {
-  margin-left: 5rem;
-  margin-right: 5rem;
 }
 
 .dropdown-menu p {
@@ -38,25 +32,9 @@
 
 .searchBar {
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
-}
-
-@media (max-width: 768px) {
-  .nav-item span {
-    font-size: 10px;
-    display: inline-block;
-    padding: 0.8rem 1rem;
-    margin-right: 0;
-  }
-  .navbar-toggler {
-    margin-right: 1rem;
-  }
-  .searchBar {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
+  align-items: center;
 }
 
 .formOutline {
@@ -87,10 +65,43 @@
   cursor: pointer;
 }
 
+@media (max-width: 768px) {
+  .nav-item span {
+    font-size: 10px;
+    display: inline-block;
+    padding: 0.8rem 1rem;
+    margin-right: 0;
+  }
+  .navbar-toggler {
+    margin-right: 1rem;
+  }
+  .searchBar {
+    justify-content: center;
+    align-items: center;
+  }
+  .formOutline {
+    width: 80%;
+  }
+  .formOutline input {
+    font-size: 0.6rem;
+  }
+  .formOutline i {
+    font-size: 0.7rem;
+    top: 0.9rem;
+  }
+
+  .dropdown-menu,
+  .dropdown button {
+    font-size: 0.6rem;
+  }
+}
+
+/*  */
 .cardCountry {
   max-width: 100%;
   margin: 0 auto;
   display: flex;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
@@ -98,10 +109,13 @@
 }
 
 .card {
-  width: 15rem;
+  width: 15.5rem;
   box-shadow: 0 1px 3px rgb(28, 211, 245);
   border: 2px solid var(--color1);
-  cursor: pointer;
+}
+
+.card .btn {
+  border: none;
 }
 
 .card:hover {
@@ -132,10 +146,12 @@
     padding: 0;
     margin-left: 1rem;
   }
+  .cardCountry {
+    gap: 0.9rem;
+  }
   .card {
     width: 8rem;
     height: 13rem;
-    gap: 2px;
   }
   .card .card-img-top {
     width: 100%;

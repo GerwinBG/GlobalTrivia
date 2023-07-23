@@ -24,10 +24,11 @@
   font-size: 80px;
   color: #fff;
   text-align: center;
+  text-shadow: var(--color1);
   animation: glow 1s ease-in-out infinite alternate;
 }
 
-@-webkit-keyframes glow {
+@keyframes glow {
   from {
     text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px var(--color1),
       0 0 40px var(--color1), 0 0 50px var(--color1), 0 0 60px var(--color1),
