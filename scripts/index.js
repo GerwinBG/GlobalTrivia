@@ -284,6 +284,6 @@ document.getElementById("hardButton").addEventListener("click", () => startGame(
 
 
 
-window.onloadstart = function() {
+window.onload = function() {
   document.getElementById("myAudio").play();
 }
