@@ -710,7 +710,7 @@ div #gameSection {
   letter-spacing: 1px;
 }
 
-.button1 {
+#easyButton {
   width: 300px;
   background-color: var(--color4);
   color: white;
@@ -726,7 +726,7 @@ div #gameSection {
   letter-spacing: 1px;
 }
 
-.button2 {
+#moderateButton {
   width: 300px;
   background-color: var(--color1);
   color: white;
@@ -742,7 +742,7 @@ div #gameSection {
   letter-spacing: 1px;
 }
 
-.button3 {
+#hardButton {
   width: 300px;
   background-color: var(--color3);
   color: white;
@@ -756,25 +756,4 @@ div #gameSection {
   margin-top: 10px;
   margin-bottom: 20px;
   letter-spacing: 1px;
-}
-
-.CategoryBox ul li .button1:hover {
-  font-weight: bold;
-  background-color: transparent;
-  border: 2px solid;
-  border-color: var(--color4);
-}
-
-.CategoryBox ul li .button2:hover {
-  font-weight: bold;
-  background-color: transparent;
-  border: 2px solid;
-  border-color: var(--color1);
-}
-
-.CategoryBox ul li .button3:hover {
-  font-weight: bold;
-  background-color: transparent;
-  border: 2px solid;
-  border-color: var(--color3);
 }
