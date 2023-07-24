@@ -102,7 +102,9 @@ li .nav-link:hover {
 }
 
 /* end of nav */
-
+audio {
+  visibility: hidden;
+}
 /*This TriviaGame Entry Form*/
 
 .UserInfo {
@@ -621,7 +623,6 @@ div #gameSection {
   border-radius: 8px;
   overflow: hidden;
 }
-  
 
 .CategoryBox::before {
   content: "";

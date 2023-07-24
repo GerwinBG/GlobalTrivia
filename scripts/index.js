@@ -185,8 +185,9 @@ const startButton = document.getElementById("startTriviaButton");
 startButton.addEventListener("click", startTriviaGame);
 
 
-
-
+window.onloadstart = function() {
+  document.getElementById("myAudio").play();
+}
 
 
 
