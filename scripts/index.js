@@ -60,7 +60,6 @@ const welcomeUserSection = document.getElementById("congratulations");
 const startGameBtn = document.getElementById("startGameBtn");
 const categorySection = document.getElementById("categorySection");
 const easyButton = document.getElementById("easyButton");
-easyButton = document.getElementById("easyButton");
 const easyTriviaGame = document.getElementById("easyQuestionContainer");
 const moderateTriviaGame = document.getElementById("moderateTriviaGame");
 const hardTriviaGame = document.getElementById("hardTriviaGame");
@@ -97,52 +96,42 @@ async function showSelectedCategory() {
     {
       question: "What is the Capital of USA?",
       correctAnswer: "Washington D.C",
-      options: [], 
     },
     {
       question: "What is the Capital City of Japan?",
       correctAnswer: "Tokyo",
-      options: [],
     },
     {
       question: "What is the Capital City of South Korea?",
       correctAnswer: "SEOUL",
-      options: [],
     },
     {
       question: "What is the Capital City of China?",
       correctAnswer: "Beijing",
-      options: [],
     },
     {
         question: "What is the Capital City of Russia?",
         correctAnswer: "Moscow",
-        options: [],
     },
     {
         question: "What is the Capital City of India?",
         correctAnswer: "New Delhi",
-        options: [],
     },
     {
         question: "What is the Capital City of Australia?",
         correctAnswer: "Canberra",
-        options: [],
     },
     {
         question: "What is the Capital City of Philippines?",
         correctAnswer: "Manila",
-        options: [],
     },
     {
         question: "What is the Capital City of Canada?",
         correctAnswer: "Ottawa",
-        options: [],
     },
     {
         question: "What is the Capital City of Israel?",
         correctAnswer: "Israel",
-        options: [],
     },
 
   ];
@@ -158,8 +147,6 @@ async function createQuestion(question, correctAnswer, containerId) {
   questionElement.innerHTML = `<p>${question}</p>`;
 
   const options = await fetchRandomChoices(correctAnswer);
-  options.push(correctAnswer); 
-
   const shuffledOptions = shuffleArray(options);
 
   shuffledOptions.forEach((option) => {
@@ -178,18 +165,28 @@ async function fetchRandomChoices(correctAnswer) {
   const response = await fetch("https://restcountries.com/v3.1/independent?status=true");
   const data = await response.json();
 
-  const choices = data.map((country) => country.name.common);
+  const capitalCities = data.map((country) => country.capital[0]);
 
-  const index = choices.indexOf(correctAnswer);
+  const index = capitalCities.indexOf(correctAnswer);
   if (index !== -1) {
-    choices.splice(index, 1);
+    capitalCities.splice(index, 1);
   }
 
-  return shuffleArray(choices);
+  const randomChoices = [];
+  while (randomChoices.length < 3) {
+    const randomIndex = Math.floor(Math.random() * capitalCities.length);
+    const randomChoice = capitalCities[randomIndex];
+    if (!randomChoices.includes(randomChoice)) {
+      randomChoices.push(randomChoice);
+    }
+  }
+
+  randomChoices.push(correctAnswer);
+  return shuffleArray(randomChoices);
 }
 
 
-function checkAnswer(selectedAnswer, correctAnswer,) {
+function checkAnswer(selectedAnswer, correctAnswer, ) {
   if (selectedAnswer === correctAnswer) {
     alert("Correct! Your answer is right.");
     score++;
@@ -219,7 +216,6 @@ function shuffleArray(array) {
   
 function showQuestion(index) {
   const currentQuestion = triviaQuestions[index];
-  const questionElement = document.getElementById(containerId);
   questionElement.innerHTML = `<p>${currentQuestion.question}</p>`;
 
   choicesElement.innerHTML = ""; 
@@ -239,7 +235,7 @@ function showQuestion(index) {
   
   
 function startTimer() {
-  let secondsLeft = 10; 
+  let secondsLeft = 40; 
 
   function updateTimer() {
     timerElement.textContent = `Time Left: ${secondsLeft}s`;
@@ -269,13 +265,6 @@ function resetQuiz() {
 
 
 
-document.getElementById("easyButton").addEventListener("click", () => startGame("easy"));;
-document.getElementById("moderateButton").addEventListener("click", () => startGame("moderate"));
-document.getElementById("hardButton").addEventListener("click", () => startGame("hard"));
-
-
-
-
 function initializeQuiz() {
   userInfoForm.addEventListener("submit", handleSubmit);
   startGameBtn.addEventListener("click", handleStart);
@@ -285,6 +274,3 @@ function initializeQuiz() {
 // Call the initializeQuiz function when the page loads
 window.onload = initializeQuiz;
 
-window.onload = function() {
-  document.getElementById("myAudio").play();
-}

@@ -79,7 +79,7 @@ li .nav-link:hover {
   transition: 0.2s ease;
 }
 
-@media (maxwidth: 768px) {
+@media (max-width: 768px) {
   .bar1,
   .bar2,
   .bar3 {
@@ -665,9 +665,66 @@ div #gameSection {
   animation-delay: -3s;
 }
 
-#categorySection {
+.Category-line {
   position: absolute;
-  background-color: rgba(0, 0, 0, 0.8);
+  top: 0;
+  inset: 0;
+}
+
+.Category-line::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 380px;
+  height: 420px;
+  background: linear-gradient(
+    0deg,
+    transparent,
+    transparent,
+    #f60878,
+    #f60878,
+    #f60878
+  );
+  z-index: 1;
+  transform-origin: bottom right;
+  animation: animate 6s linear infinite;
+  animation-delay: -1.5s;
+}
+
+.Category-line::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 380px;
+  height: 420px;
+  background: linear-gradient(
+    0deg,
+    transparent,
+    transparent,
+    #f60878,
+    #f60878,
+    #f60878
+  );
+  z-index: 1;
+  transform-origin: bottom right;
+  animation: animate 6s linear infinite;
+  animation-delay: -4.5s;
+}
+
+@keyframes animate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.Categories {
+  position: absolute;
+  background-color: #000000;
   inset: 4px;
   padding: 50px 40px;
   border-radius: 8px;
@@ -675,6 +732,7 @@ div #gameSection {
   display: flex;
   flex-direction: column;
 }
+
 
 #categorySection h2 {
   color: var(--color1);
@@ -685,15 +743,6 @@ div #gameSection {
   letter-spacing: 0.1em;
 }
 
-#categorySection ul {
-  list-style: none;
-  padding: 0;
-  margin: 40px 0;
-}
-
-#categorySection li {
-  margin: 10px 0;
-}
 
 #categorySection button {
   width: 300px;
@@ -756,4 +805,27 @@ div #gameSection {
   margin-top: 10px;
   margin-bottom: 20px;
   letter-spacing: 1px;
+}
+
+.easytriviagame {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.easytriviagame h2 {
+  margin-top: 5px;
+  text-align: center;
+  color: #f2f2f2;
+  font-size: 40px;
+  font-family: "signika", sans-serif;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+}
+
+.easytriviagame .btn {
+  border-radius: 4px;
+  font-size: 16px;
+  padding: 10px 20px;
+  margin: 5px;
 }
