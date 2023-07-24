@@ -60,6 +60,7 @@ const welcomeUserSection = document.getElementById("congratulations");
 const startGameBtn = document.getElementById("startGameBtn");
 const categorySection = document.getElementById("categorySection");
 const easyButton = document.getElementById("easyButton");
+easyButton = document.getElementById("easyButton");
 const easyTriviaGame = document.getElementById("easyQuestionContainer");
 const moderateTriviaGame = document.getElementById("moderateTriviaGame");
 const hardTriviaGame = document.getElementById("hardTriviaGame");
@@ -152,7 +153,7 @@ async function showSelectedCategory() {
 }
 
 async function createQuestion(question, correctAnswer, containerId) {
-  const questionContainer = document.getElementById("containerId");
+  const questionContainer = document.getElementById(containerId);
   const questionElement = document.createElement("div");
   questionElement.innerHTML = `<p>${question}</p>`;
 
