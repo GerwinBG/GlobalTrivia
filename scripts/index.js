@@ -59,230 +59,230 @@ const userInfoForm = document.getElementById("userInfoForm");
 const welcomeUserSection = document.getElementById("congratulations");
 const startGameBtn = document.getElementById("startGameBtn");
 const categorySection = document.getElementById("categorySection");
-const triviaGameSection = document.getElementById("TriviaGame");
+const easyButton = document.getElementById("easyButton");
+const easyTriviaGame = document.getElementById("easyQuestionContainer");
+const moderateTriviaGame = document.getElementById("moderateTriviaGame");
+const hardTriviaGame = document.getElementById("hardTriviaGame");
 const questionElement = document.getElementById("question");
 const choicesElement = document.getElementById("choices");
 const timerElement = document.getElementById("timer");
-const progressBar = timerElement.querySelector(".progress-bar");
-const timeLeftElement = timerElement.querySelector(".time-left");
 
 let userName;
-let triviaQuestions;
+let triviaQuestions = [];
 let currentQuestionIndex = 0;
 let score = 0;
 let countdownTimer;
 
-// Function to handle form submission
 function handleSubmit(event) {
-  event.preventDefault(); // Prevent form submission
+  event.preventDefault();
 
-  // Hide the user info form
   userInfoForm.style.display = "none";
-
-  // Display the congratulations
   welcomeUserSection.style.display = "block";
-
-  // Scroll to the welcome user div
   welcomeUserSection.scrollIntoView({ behavior: "smooth" });
 }
 
-// Function to handle start button click
 function handleStart() {
-  // Hide the congratulations
   welcomeUserSection.style.display = "none";
-
-  // Show the category section
   categorySection.style.display = "block";
 }
 
-async function startTriviaGame(category) {
+async function showSelectedCategory() {
   categorySection.style.display = "none";
-  triviaGameSection.style.display = "block";
+  easyTriviaGame.style.display = "block";
+  moderateTriviaGame.style.display = "none"; 
+  hardTriviaGame.style.display = "none";
 
-  if (category === "easy") {
-    triviaQuestions = easyQuestions; 
-  } else if (category === "moderate") {
-    triviaQuestions = getModerateQuestions(); 
-  } else if (category === "hard") {
-    triviaQuestions = getHardQuestions(); 
-  }
+  triviaQuestions = [
+    {
+      question: "What is the Capital of USA?",
+      correctAnswer: "Washington D.C",
+      options: [], 
+    },
+    {
+      question: "What is the Capital City of Japan?",
+      correctAnswer: "Tokyo",
+      options: [],
+    },
+    {
+      question: "What is the Capital City of South Korea?",
+      correctAnswer: "SEOUL",
+      options: [],
+    },
+    {
+      question: "What is the Capital City of China?",
+      correctAnswer: "Beijing",
+      options: [],
+    },
+    {
+        question: "What is the Capital City of Russia?",
+        correctAnswer: "Moscow",
+        options: [],
+    },
+    {
+        question: "What is the Capital City of India?",
+        correctAnswer: "New Delhi",
+        options: [],
+    },
+    {
+        question: "What is the Capital City of Australia?",
+        correctAnswer: "Canberra",
+        options: [],
+    },
+    {
+        question: "What is the Capital City of Philippines?",
+        correctAnswer: "Manila",
+        options: [],
+    },
+    {
+        question: "What is the Capital City of Canada?",
+        correctAnswer: "Ottawa",
+        options: [],
+    },
+    {
+        question: "What is the Capital City of Israel?",
+        correctAnswer: "Israel",
+        options: [],
+    },
 
-  showQuestion(currentQuestionIndex);
+  ];
+
+  await createQuestion(triviaQuestions[currentQuestionIndex].question, triviaQuestions[currentQuestionIndex].correctAnswer, 'question-container-easy');
   startTimer();
+
 }
 
-// 10 easy category questions
-const easyQuestions = [
-  {
-    question: "What is the capital of USA?",
-    choices: ["New York", "Los Angeles", "Chicago", "Washington D.C"],
-    correctChoice: "Washington D.C"
-  },
-  {
-    question: "What is the capital city of Japan?",
-    choices: ["Tokyo", "Beijing", "Seoul", "Shanghai"],
-    correctChoice: "Tokyo"
-  },
-  {
-    question: "What is the capital city of South Korea?",
-    choices: ["Seoul", "Bangkok", "Hanoi", "Kuala Lumpur"],
-    correctChoice: "Seoul"
-  },
-  {
-    question: "What is the capital city of China?",
-    choices: ["Beijing", "Shanghai", "Hong Kong", "Singapore"],
-    correctChoice: "Beijing"
-  },
-  {
-    question: "What is the capital city of Russia?",
-    choices: ["Moscow", "St. Petersburg", "Kiev", "Berlin"],
-    correctChoice: "Moscow"
-  },
-  {
-    question: "What is the capital city of India?",
-    choices: ["Delhi", "Mumbai", "Bangalore", "New Delhi"],
-    correctChoice: "New Delhi"
-  },
-  {
-    question: "What is the capital city of Australia?",
-    choices: ["Canberra", "Sydney", "Melbourne", "Brisbane"],
-    correctChoice: "Canberra"
-  },
-  {
-    question: "What is the capital city of Philippines?",
-    choices: ["Manila", "Jakarta", "Bangkok", "Kuala Lumpur"],
-    correctChoice: "Manila"
-  },
-  {
-    question: "What is the capital city of Canada?",
-    choices: ["Toronto", "Ottawa", "Vancouver", "Montreal"],
-    correctChoice: "Ottawa"
-  },
-  {
-    question: "What is the capital city of Israel?",
-    choices: ["Jerusalem", "Tel Aviv", "Haifa", "Israel"],
-    correctChoice: "Jerusalem"
+async function createQuestion(question, correctAnswer, containerId) {
+  const questionContainer = document.getElementById("containerId");
+  const questionElement = document.createElement("div");
+  questionElement.innerHTML = `<p>${question}</p>`;
+
+  const options = await fetchRandomChoices(correctAnswer);
+  options.push(correctAnswer); 
+
+  const shuffledOptions = shuffleArray(options);
+
+  shuffledOptions.forEach((option) => {
+    const button = document.createElement("button");
+    button.textContent = option;
+    button.onclick = function () {
+      checkAnswer(option, correctAnswer);
+    };
+    questionElement.appendChild(button);
+  });
+
+  questionContainer.appendChild(questionElement);
+}
+  
+async function fetchRandomChoices(correctAnswer) {
+  const response = await fetch("https://restcountries.com/v3.1/independent?status=true");
+  const data = await response.json();
+
+  const choices = data.map((country) => country.name.common);
+
+  const index = choices.indexOf(correctAnswer);
+  if (index !== -1) {
+    choices.splice(index, 1);
   }
-];
 
-// Function to get three random choices and the correct answer
-async function getChoices(correctChoice) {
-  const randomCities = await fetchRandomCities();
-  const choices = randomCities.slice(0, 3);
-  choices.push(correctChoice);
-  shuffle(choices);
-  return choices;
+  return shuffleArray(choices);
 }
 
-// Function to show a question with its choices
-async function showQuestion(index) {
-  if (index < triviaQuestions.length) {
-    questionElement.textContent = triviaQuestions[index].question;
-    const choicesButtons = choicesElement.getElementsByTagName("button");
-    const choices = await getChoices(triviaQuestions[index].correctChoice);
 
-    for (let i = 0; i < choicesButtons.length; i++) {
-      choicesButtons[i].textContent = choices[i];
-    }
+function checkAnswer(selectedAnswer, correctAnswer,) {
+  if (selectedAnswer === correctAnswer) {
+    alert("Correct! Your answer is right.");
+    score++;
   } else {
-    showGameOverPopup();
+    alert("Incorrect. Please try again.");
   }
-}
 
-
-// Function to handle the "Next Question" button click
-function handleNextQuestion() {
-  if (currentQuestionIndex < 9) {
-    currentQuestionIndex++;
+  currentQuestionIndex++;
+  if (currentQuestionIndex < triviaQuestions.length) {
     showQuestion(currentQuestionIndex);
-    startTimer();
   } else {
-    showResultPopup(score);
+
+    alert(`Quiz Completed! Your score is: ${score}/${triviaQuestions.length}`);
+    resetQuiz();
   }
+  
 }
 
-function showPopup(isCorrect) {
-  if (isCorrect) {
-    // Show "Congratulations! you got the correct answer" popup
-    score += 10;
-  } else {
-    // Show "Sorry you're wrong!" popup
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
   }
+  return array;
 }
 
-// Function to check the answer selected by the user
-function checkAnswer(selectedButton) {
-  const selectedAnswer = selectedButton.textContent;
-  const correctAnswer = triviaQuestions[currentQuestionIndex].correctChoice;
-  clearInterval(countdownTimer);
+  
+function showQuestion(index) {
+  const currentQuestion = triviaQuestions[index];
+  const questionElement = document.getElementById(containerId);
+  questionElement.innerHTML = `<p>${currentQuestion.question}</p>`;
 
-  if (selectedAnswer === correctAnswer) {
-    showPopup(true);
-  } else {
-    showPopup(false);
-  }
+  choicesElement.innerHTML = ""; 
 
-  handleNextQuestion();
+  const shuffledOptions = shuffleArray(currentQuestion.options);
+
+  shuffledOptions.forEach((option) => {
+    const button = document.createElement("button");
+    button.textContent = option;
+    button.onclick = function () {
+      checkAnswer(option, currentQuestion.correctAnswer);
+    };
+    choicesElement.appendChild(button);
+  });
 }
-
+  
+  
+  
 function startTimer() {
-  let timeLeft = 40;
-  countdownTimer = setInterval(() => {
-    timeLeft -= 1;
-    const progressWidth = (timeLeft / 40) * 100;
-    progressBar.style.width = `${progressWidth}%`;
-    timeLeftElement.textContent = `00:${timeLeft.toString().padStart(2, "0")}`;
-    if (timeLeft <= 0) {
+  let secondsLeft = 10; 
+
+  function updateTimer() {
+    timerElement.textContent = `Time Left: ${secondsLeft}s`;
+    secondsLeft--;
+
+    if (secondsLeft < 0) {
       clearInterval(countdownTimer);
-      showOutOfTimePopup();
+      checkAnswer(null, null); 
     }
-  }, 1000);
-}
-
-function checkAnswer(selectedButton) {
-  const selectedAnswer = selectedButton.textContent;
-  const correctAnswer = triviaQuestions[currentQuestionIndex].correctChoice;
-  clearInterval(countdownTimer);
-
-  if (selectedAnswer === correctAnswer) {
-    score += 10;
-    showCorrectAnswerPopup();
-  } else {
-    showWrongAnswerPopup();
   }
+
+  updateTimer(); 
+
+  
+  countdownTimer = setInterval(updateTimer, 1000);
 }
 
-function showCorrectAnswerPopup() {
-  // Show the "Congratulations! you got the correct answer" popup
-  // Update the score and other necessary elements
-  // Implement the "Next Question" functionality
-}
-
-function showWrongAnswerPopup() {
-  // Show the "Sorry you're wrong!" popup
-  // Implement the "Next Question" functionality
-}
-
-function showOutOfTimePopup() {
-  // Show the "Sorry, you're running out of time!" popup
-  // Implement the "Next Question" functionality
-}
-
-function showGameOverPopup() {
-  // Show the game over popup with the summary of correct answers and total score
-  // Implement the leaderboard update functionality
-  // Reset the game state to allow the user to select a category again
+function resetQuiz() {
+  currentQuestionIndex = 0;
+  score = 0;
+  clearInterval(countdownTimer);
+  timerElement.textContent = "";
+  choicesElement.innerHTML = "";
+  categorySection.style.display = "block";
+  easyTriviaGame.style.display = "none";
 }
 
 
-userInfoForm.addEventListener("submit", handleSubmit);
-startGameBtn.addEventListener("click", handleStart);
 
 document.getElementById("easyButton").addEventListener("click", () => startGame("easy"));;
 document.getElementById("moderateButton").addEventListener("click", () => startGame("moderate"));
 document.getElementById("hardButton").addEventListener("click", () => startGame("hard"));
 
 
+
+
+function initializeQuiz() {
+  userInfoForm.addEventListener("submit", handleSubmit);
+  startGameBtn.addEventListener("click", handleStart);
+  easyButton.addEventListener("click", showSelectedCategory);
+}
+
+// Call the initializeQuiz function when the page loads
+window.onload = initializeQuiz;
 
 window.onload = function() {
   document.getElementById("myAudio").play();
