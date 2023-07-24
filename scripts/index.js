@@ -269,6 +269,13 @@ function resetQuiz() {
 
 
 
+document.getElementById("easyButton").addEventListener("click", () => startGame("easy"));;
+document.getElementById("moderateButton").addEventListener("click", () => startGame("moderate"));
+document.getElementById("hardButton").addEventListener("click", () => startGame("hard"));
+
+
+
+
 function initializeQuiz() {
   userInfoForm.addEventListener("submit", handleSubmit);
   startGameBtn.addEventListener("click", handleStart);
@@ -278,3 +285,6 @@ function initializeQuiz() {
 // Call the initializeQuiz function when the page loads
 window.onload = initializeQuiz;
 
+window.onload = function() {
+  document.getElementById("myAudio").play();
+}
