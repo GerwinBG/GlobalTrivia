@@ -149,8 +149,6 @@ async function createQuestion(question, correctAnswer, containerId) {
     questionElement = document.createElement("div");
     questionElement.innerHTML = `<h2>${question}</h2>`;
     questionElement.classList.add("easyQuestion");
-    choicesElement = document.getElementById("choices");
-
 
   const buttonA = document.getElementById("ButtonA");
   const buttonB = document.getElementById("ButtonB");
@@ -159,6 +157,13 @@ async function createQuestion(question, correctAnswer, containerId) {
 
   const options = await fetchRandomChoices(correctAnswer);
   const shuffledOptions = shuffleArray(options);
+
+  const buttons = [buttonA, buttonB, buttonC, buttonD];
+
+  buttons[0].textContent = shuffledOptions[0];
+  buttons[1].textContent = shuffledOptions[1];
+  buttons[2].textContent = shuffledOptions[2];
+  buttons[3].textContent = shuffledOptions[3];
 
   buttonA.onclick = function () {
     checkAnswer(shuffledOptions[0], correctAnswer)
@@ -188,14 +193,6 @@ async function createQuestion(question, correctAnswer, containerId) {
   buttonRow2.appendChild(buttonD);
   questionContainer.appendChild(buttonRow2);
 
-  const buttons = [buttonA, buttonB, buttonC, buttonD];
-
-  buttons[0].textContent = shuffledOptions[0];
-  buttons[1].textContent = shuffledOptions[1];
-  buttons[2].textContent = shuffledOptions[2];
-  buttons[3].textContent = shuffledOptions[3];
-
-
 }
   
 async function fetchRandomChoices(correctAnswer) {
@@ -204,22 +201,21 @@ async function fetchRandomChoices(correctAnswer) {
 
   const capitalCities = data.map((country) => country.capital[0]);
 
-  const index = capitalCities.indexOf(correctAnswer);
-  if (index !== -1) {
-    capitalCities.splice(index, 1);
-  }
+  const shuffledChoices = shuffleArray(capitalCities);
+
+  const correctAnswerIndex = Math.floor(Math.random() * 4); 
+  shuffledChoices.splice(correctAnswerIndex, 0, correctAnswer);
 
   const randomChoices = [];
   while (randomChoices.length < 3) {
     const randomIndex = Math.floor(Math.random() * capitalCities.length);
     const randomChoice = capitalCities[randomIndex];
-    if (!randomChoices.includes(randomChoice)) {
+    if (!randomChoices.includes(randomChoice) && randomChoice !== correctAnswer) {
       randomChoices.push(randomChoice);
     }
   }
-
-  randomChoices.push(correctAnswer);
-  return shuffleArray(randomChoices);
+  
+  return shuffleArray(randomChoices.concat(correctAnswer));
 }
 
 

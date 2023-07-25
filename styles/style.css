@@ -808,6 +808,13 @@ div #gameSection {
 }
 
 
+.easytriviagame .easyCategorygame h3 {
+  color: var(--color1);
+  font-size: 30px;
+  font-family: "Roboto Flex", sans-serif;
+  margin-top: 0;
+}
+
 .easytriviagame .easyCategorygame h2{
   color: White;
   font-size: 60px;
