@@ -1,3 +1,6 @@
+let questionElement;
+let choicesElement;
+
 // toggle for nav
 function myFunction(x) {
   x.classList.toggle("change");
@@ -62,8 +65,6 @@ const easyButton = document.getElementById("easyButton");
 const easyTriviaGame = document.getElementById("easyQuestionContainer");
 const moderateTriviaGame = document.getElementById("moderateTriviaGame");
 const hardTriviaGame = document.getElementById("hardTriviaGame");
-const questionElement = document.getElementById("question");
-const choicesElement = document.getElementById("choices");
 const timerElement = document.getElementById("timer");
 
 let userName;
@@ -145,9 +146,10 @@ async function showSelectedCategory() {
 
 async function createQuestion(question, correctAnswer, containerId) {
   const questionContainer = document.getElementById(containerId);
-  const questionElement = document.createElement("div");
-  questionElement.innerHTML = `<h2>${question}</h2>`;
-  questionElement.classList.add("easyQuestion");
+    questionElement = document.createElement("div");
+    questionElement.innerHTML = `<h2>${question}</h2>`;
+    questionElement.classList.add("easyQuestion");
+    choicesElement = document.getElementById("choices");
 
 
   const buttonA = document.getElementById("ButtonA");
