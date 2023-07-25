@@ -144,21 +144,40 @@ async function showSelectedCategory() {
 async function createQuestion(question, correctAnswer, containerId) {
   const questionContainer = document.getElementById(containerId);
   const questionElement = document.createElement("div");
-  questionElement.innerHTML = `<p>${question}</p>`;
+  questionElement.innerHTML = `<h2>${question}</h2>`;
+
+  const buttonA = document.getElementById("ButtonA");
+  const buttonB = document.getElementById("ButtonB");
+  const buttonC = document.getElementById("ButtonC");
+  const buttonD = document.getElementById("ButtonD");
+
 
   const options = await fetchRandomChoices(correctAnswer);
-  const shuffledOptions = shuffleArray(options);
+  buttonA.textContent = options[0];
+  buttonB.textContent = options[1];
+  buttonC.textContent = options[2];
+  buttonD.textContent = options[3];
 
-  shuffledOptions.forEach((option) => {
-    const button = document.createElement("button");
-    button.textContent = option;
-    button.onclick = function () {
-      checkAnswer(option, correctAnswer);
-    };
-    questionElement.appendChild(button);
-  });
+  buttonA.onclick = function () {
+    checkAnswer(options[0], correctAnswer)
+  };
+  buttonB.onclick = function () {
+    checkAnswer(options[1], correctAnswer);
+  };
+  buttonC.onclick = function () {
+    checkAnswer(options[2], correctAnswer);
+  };
+  buttonD.onclick = function () {
+    checkAnswer(options[3], correctAnswer);
+  }
 
   questionContainer.appendChild(questionElement);
+  questionContainer.appendChild(document.getElementById("timer"));
+  questionContainer.appendChild(buttonA);
+  questionContainer.appendChild(buttonB);
+  questionContainer.appendChild(buttonC);
+  questionContainer.appendChild(buttonC);
+
 }
   
 async function fetchRandomChoices(correctAnswer) {
@@ -214,22 +233,40 @@ function shuffleArray(array) {
 }
 
   
-function showQuestion(index) {
+async function showQuestion(index) {
   const currentQuestion = triviaQuestions[index];
   questionElement.innerHTML = `<p>${currentQuestion.question}</p>`;
 
-  choicesElement.innerHTML = ""; 
+  choicesElement.innerHTML = "";
 
-  const shuffledOptions = shuffleArray(currentQuestion.options);
+  const shuffledOptions = shuffleArray([currentQuestion.correctAnswer, ...currentQuestion.incorrectAnswers]);
 
   shuffledOptions.forEach((option) => {
     const button = document.createElement("button");
     button.textContent = option;
+    button.style.fontSize = "20px"
     button.onclick = function () {
       checkAnswer(option, currentQuestion.correctAnswer);
     };
     choicesElement.appendChild(button);
   });
+}
+
+function checkAnswer(selectedAnswer, correctAnswer) {
+  if (selectedAnswer === correctAnswer) {
+    alert("Correct! Your answer is right.");
+    score++;
+  } else {
+    alert("Incorrect. Please try again.");
+  }
+
+  currentQuestionIndex++;
+  if (currentQuestionIndex < triviaQuestions.length) {
+    showQuestion(currentQuestionIndex);
+  } else {
+    alert(`Quiz Completed! Your score is: ${score}/${triviaQuestions.length}`);
+    resetQuiz();
+  }
 }
   
   
