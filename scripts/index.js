@@ -145,38 +145,56 @@ async function createQuestion(question, correctAnswer, containerId) {
   const questionContainer = document.getElementById(containerId);
   const questionElement = document.createElement("div");
   questionElement.innerHTML = `<h2>${question}</h2>`;
+  questionElement.classList.add("easyQuestion");
+
 
   const buttonA = document.getElementById("ButtonA");
   const buttonB = document.getElementById("ButtonB");
   const buttonC = document.getElementById("ButtonC");
   const buttonD = document.getElementById("ButtonD");
 
-
   const options = await fetchRandomChoices(correctAnswer);
-  buttonA.textContent = options[0];
-  buttonB.textContent = options[1];
-  buttonC.textContent = options[2];
-  buttonD.textContent = options[3];
+  const shuffledOptions = shuffleArray(options);
 
   buttonA.onclick = function () {
-    checkAnswer(options[0], correctAnswer)
+    checkAnswer(shuffledOptions[0], correctAnswer)
   };
   buttonB.onclick = function () {
-    checkAnswer(options[1], correctAnswer);
+    checkAnswer(shuffledOptions[1], correctAnswer);
   };
   buttonC.onclick = function () {
-    checkAnswer(options[2], correctAnswer);
+    checkAnswer(shuffledOptions[2], correctAnswer);
   };
   buttonD.onclick = function () {
-    checkAnswer(options[3], correctAnswer);
+    checkAnswer(shuffledOptions[3], correctAnswer);
   }
 
   questionContainer.appendChild(questionElement);
   questionContainer.appendChild(document.getElementById("timer"));
-  questionContainer.appendChild(buttonA);
-  questionContainer.appendChild(buttonB);
-  questionContainer.appendChild(buttonC);
-  questionContainer.appendChild(buttonC);
+
+  const buttonRow1 =document.createElement("div");
+  buttonRow1.className = "button-row1";
+  buttonRow1.appendChild(buttonA);
+  buttonRow1.appendChild(buttonB);
+  questionContainer.appendChild(buttonRow1);
+
+  const buttonRow2 =document.createElement("div");
+  buttonRow2.className = "button-row2";
+  buttonRow2.appendChild(buttonC);
+  buttonRow2.appendChild(buttonD);
+  questionContainer.appendChild(buttonRow2);
+
+  const buttons = [buttonA, buttonB, buttonC, buttonD];
+
+  buttons.forEach((button) => {
+    button.className = "btn";
+    button.textContent = shuffledOptions.shift();
+  });
+
+  buttonA.textContent = shuffledOptions[0];
+  buttonB.textContent = shuffledOptions[1];
+  buttonC.textContent = shuffledOptions[2];
+  buttonD.textContent = shuffledOptions[3];
 
 }
   
@@ -307,6 +325,8 @@ function initializeQuiz() {
   startGameBtn.addEventListener("click", handleStart);
   easyButton.addEventListener("click", showSelectedCategory);
 }
+
+
 
 // Call the initializeQuiz function when the page loads
 window.onload = initializeQuiz;

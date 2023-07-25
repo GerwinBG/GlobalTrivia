@@ -807,25 +807,74 @@ div #gameSection {
   letter-spacing: 1px;
 }
 
-.easytriviagame {
+.easytriviagame .easyCategorygame {
+  margin: 0;
+}
+
+.easytriviagame .easyCategorygame h2{
+  color: White;
+  font-size: 60px;
+  font-family: "Signika", sans-serif;
+  margin-top: 0;
+}
+
+#timer {
+  font-size: 20px;
+  color: var(--color1);
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+
+
+.easytriviagame .easyCategorygame .button-row1,
+.button-row2 {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-bottom: 10px; 
 }
 
-.easytriviagame h2 {
-  margin-top: 5px;
+.easytriviagame .easyCategorygame .button-row1 #ButtonA{
+  background-color: var(--color3);
+  color: white;
+  padding: 30px 150px;
   text-align: center;
-  color: #f2f2f2;
-  font-size: 40px;
-  font-family: "signika", sans-serif;
-  font-weight: 700;
-  letter-spacing: 1.5px;
+  font-size: 24px;
+  margin: 5px 5px;
+  cursor: pointer;
 }
 
-.easytriviagame .btn {
-  border-radius: 4px;
-  font-size: 16px;
-  padding: 10px 20px;
-  margin: 5px;
+.easytriviagame .easyCategorygame .button-row1 #ButtonB {
+  background-color: var(--color1);
+  color: white;
+  padding: 30px 150px;
+  text-align: center;
+  font-size: 24px;
+  margin: 5px 5px;
+  cursor: pointer;
 }
+
+.easytriviagame .easyCategorygame .button-row2 #ButtonC {
+  background-color: var(--color4);
+  color: white;
+  padding: 30px 150px;
+  text-align: center;
+  font-size: 24px;
+  margin: 0 5px;
+  cursor: pointer;
+} 
+
+.easytriviagame .easyCategorygame .button-row2 #ButtonD {
+  background-color: rgb(8, 163, 225);
+  color: white;
+  padding: 30px 150px;
+  text-align: center;
+  margin: 0 5px;
+  font-size: 24px;
+  cursor: pointer;
+} 
+
+
+
+
+
