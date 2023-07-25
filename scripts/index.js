@@ -1,4 +1,3 @@
-
 // toggle for nav
 function myFunction(x) {
   x.classList.toggle("change");
@@ -136,6 +135,9 @@ async function showSelectedCategory() {
 
   ];
 
+  currentQuestionIndex = 0;
+  score = 0
+
   await createQuestion(triviaQuestions[currentQuestionIndex].question, triviaQuestions[currentQuestionIndex].correctAnswer, 'question-container-easy');
   startTimer();
 
@@ -186,15 +188,11 @@ async function createQuestion(question, correctAnswer, containerId) {
 
   const buttons = [buttonA, buttonB, buttonC, buttonD];
 
-  buttons.forEach((button) => {
-    button.className = "btn";
-    button.textContent = shuffledOptions.shift();
-  });
+  buttons[0].textContent = shuffledOptions[0];
+  buttons[1].textContent = shuffledOptions[1];
+  buttons[2].textContent = shuffledOptions[2];
+  buttons[3].textContent = shuffledOptions[3];
 
-  buttonA.textContent = shuffledOptions[0];
-  buttonB.textContent = shuffledOptions[1];
-  buttonC.textContent = shuffledOptions[2];
-  buttonD.textContent = shuffledOptions[3];
 
 }
   
@@ -253,11 +251,11 @@ function shuffleArray(array) {
   
 async function showQuestion(index) {
   const currentQuestion = triviaQuestions[index];
-  questionElement.innerHTML = `<p>${currentQuestion.question}</p>`;
-
-  choicesElement.innerHTML = "";
+  questionElement.innerHTML = `<h2>${currentQuestion.question}</h2>`;
 
   const shuffledOptions = shuffleArray([currentQuestion.correctAnswer, ...currentQuestion.incorrectAnswers]);
+
+  choicesElement.innerHTML = "";
 
   shuffledOptions.forEach((option) => {
     const button = document.createElement("button");
@@ -330,4 +328,7 @@ function initializeQuiz() {
 
 // Call the initializeQuiz function when the page loads
 window.onload = initializeQuiz;
+
+document.getElementById("startQuizButton").addEventListener("click", startQuiz);
+
 
